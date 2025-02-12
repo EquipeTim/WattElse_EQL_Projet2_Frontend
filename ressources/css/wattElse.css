@@ -1,0 +1,28 @@
+footer {
+    background-color: #474747;
+    border-color: rgb(240, 238, 238);
+    border-style: solid;
+    border-radius: 2rem;
+}
+footer > h2 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    color: aliceblue;
+}
+a {
+    text-decoration: none; 
+    color:rgb(244, 244, 244);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.image {
+    height: 6rem;
+}
+
+.card-style {
+    border-radius: 15px;
+    background 
+}
