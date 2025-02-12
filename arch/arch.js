@@ -12,7 +12,9 @@ fetch("../arch/linkHead.html")
   });
 
 
-let owner =false;
+let owner = sessionStorage.getItem("owner");
+
+
 const navigationHtml = owner
                             ? "../arch/ownerNavigation.html"
                             : "../arch/guestNavigation.html"
@@ -32,4 +34,6 @@ fetch("../arch/footer.html")
     .then(response => response.text())
     .then(html => document.getElementById("footer").innerHTML = html)
   
-   
+function disconnect(){
+  sessionStorage.removeItem("owner");
+}

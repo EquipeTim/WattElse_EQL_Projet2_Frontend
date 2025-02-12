@@ -1,4 +1,5 @@
 export function incorrectLoginDisplay() {
+    /*
     document.getElementById("messageLabel").innerText = 
         "Identifiant et/ou mot de passe incorrect(s)";
     const iconBack = document.querySelectorAll(
@@ -9,4 +10,5 @@ export function incorrectLoginDisplay() {
             "class", "input-group-text bg-warning")
     );
     document.getElementById("connectionForm").reset();
+    */
 }

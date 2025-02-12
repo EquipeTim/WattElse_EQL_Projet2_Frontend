@@ -5,25 +5,30 @@ const backUrl = `${getBackUrl()}/connection`;
 
 addActionToConnectionButton();
 
+
 function addActionToConnectionButton() {
     const connectionButton = document.getElementById("connectionButton");
     connectionButton.addEventListener("click", authenticate);
 }
 
-function authenticate(event) {
-    const login = this.form.loginInput.value;
-    const password = event.target.form.passwordInput.value;
+
+function authenticate() {
+       
+    const email = document.getElementById('emailValue').value;
+    const password = document.getElementById('passwordValue').value;
+
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type" : "application/json" },
-        body: JSON.stringify({ login: login, password: password })
+        body: JSON.stringify({ email: email, password: password })
         
     };
     fetch(`${backUrl}/authenticate`, requestOptions)
         .then(response => response.ok ? response.text() : Promise.reject(response))
-        .then(text => {
-            sessionStorage.setItem("owner", text);
+        .then(data => {
+            sessionStorage.setItem("owner", data);
             window.location.href = "home.html";
+            
         })
         .catch(response => {
             incorrectLoginDisplay();
@@ -32,3 +37,4 @@ function authenticate(event) {
             `${response.status} ${response.statusText}`);
         });
 }
+
