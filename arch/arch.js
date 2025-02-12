@@ -1,15 +1,15 @@
 'use strict';
 
-fetch("./arch/header.html")
+fetch("../arch/header.html")
     .then(response => response.text())
     .then(html => document.getElementById("header").innerHTML = html)
 
 
 
-let owner = true;
+let owner = false;
 const navigationHtml = owner
-                            ? "./arch/ownerNavigation.html"
-                            : "./arch/guestNavigation.html"
+                            ? "../arch/ownerNavigation.html"
+                            : "../arch/guestNavigation.html"
 
 fetch(navigationHtml)
     .then(response => response.text())
@@ -17,6 +17,6 @@ fetch(navigationHtml)
 
 
     
-fetch("./arch/footer.html")
+fetch("../arch/footer.html")
     .then(response => response.text())
     .then(html => document.getElementById("footer").innerHTML = html)
