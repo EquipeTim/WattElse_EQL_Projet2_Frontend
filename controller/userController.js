@@ -3,22 +3,19 @@ import { getBackUrl } from "./backUrl.js";
 
 const backUrl = `${getBackUrl()}/user`;
 
-
-const connectionButton = document.getElementById("registrationButton");
-connectionButton.addEventListener("click", verifyForm);
-
-
 const owner = JSON.parse(sessionStorage.getItem("owner"));
 
 
 fetchUser()
 function fetchUser() {
+    console.log(owner.token)
     fetch(`${backUrl}/details`, {
-        method: "GET",
+        method: "POST",
         headers: {
-            "Authorizatison": "Bearer " + owner.token,
+            "Authorization": "Bearer " + owner.token,  // Le token dans l'en-tête
             "Content-Type": "application/json"
-        }
+        },
+       
     })
     .then(response => {
         if (!response.ok) {
@@ -27,7 +24,7 @@ function fetchUser() {
         return response.json();
     })
     .then(data => {
-        console.log(data)
+        console.log(data);
     })
     .catch(error => {
         console.error("Erreur lors du chargement des utilisateurs :", error);

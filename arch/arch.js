@@ -31,7 +31,7 @@ fetch("../arch/header.html")
 
 
           let userName = JSON.parse(owner);
-          console.log(owner)
+      
           if(userName){
            
             

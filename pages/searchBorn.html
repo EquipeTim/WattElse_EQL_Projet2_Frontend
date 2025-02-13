@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <script async  src="../arch/arch.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/cosmo/bootstrap.min.css">
+	<link rel="stylesheet" href="../ressources/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="./cat.css"> -->
+  
+    <script async src="../arch/arch.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</head>
+
+    <body>
+        <div id="header">   </div>
+
+        <div id="alert"></div>
+
+        <section class="w-100">
+            <div>
+                <iframe
+  width="600"
+  height="450"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps/embed/v1/place?key=API_KEY
+    &q=Space+Needle,Seattle+WA">
+</iframe>
+            </div>
+          <div class="d-flex justify-content-center my-5 w-100">
+              <div class="d-flex justify-content-between align-items-center w-75 bg-primary p-4 rounded-5">
+      
+                  <div class="d-flex flex-column mb-3 w-25">
+                      <label for="selectLieu" class="text-white">Lieu</label>
+                      <select class="form-control" id="selectLieu">
+                          <option>Lieu 1</option>
+                          <option>Lieu 2</option>
+                          <option>Lieu 3</option>
+                      </select>
+                  </div>
+      
+                  <div class="d-flex flex-column mb-3 w-25">
+                      <label for="selectRayon" class="text-white">Rayon</label>
+                      <select class="form-control" id="selectRayon">
+                          <option>5 km</option>
+                          <option>10 km</option>
+                          <option>20 km</option>
+                      </select>
+                  </div>
+      
+                  <div class="d-flex flex-column mb-3 w-25">
+                      <label for="selectDate" class="text-white">Date</label>
+                      <input type="date" class="form-control" id="selectDate">
+                  </div>
+      
+                  <div class="d-flex flex-column mb-3 w-25">
+                      <label for="selectType" class="text-white">Prise</label>
+                      <select class="form-control" id="selectType">
+                          <option>Type 1</option>
+                          <option>Type 2</option>
+                          <option>Type 3</option>
+                      </select>
+                  </div>
+      
+                  <div class="d-flex align-items-center">
+                      <button class="btn btn-light rounded-circle p-3">
+                          <i class="fa fa-search fa-3x"></i>
+                      </button>
+                  </div>
+      
+              </div>
+          </div>
+        </section>
+        
+        
+        
+        <div id="footer"></div>
+        
+    </body>
+
+</html>
