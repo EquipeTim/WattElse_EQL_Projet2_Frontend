@@ -15,28 +15,27 @@
 <body>
     <div id="header"> </div>
 
-    <section class="d-flex h-100 ">
+    <section class="h-100 row w-100">
 
-        <article class="container m-0 p-0 w-25 bg-secondary ">
-                <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Données personnelles</button>
-                <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Bornes</button>
-                <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Véhicules</button>
-                <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Moyens de paiement</button>
-                <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Transactions</button>
-                <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Revenus</button>
+        <article class="container m-0 p-0 bg-secondary col-lg-3">
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Données personnelles</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Bornes</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Véhicules</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Moyens de paiement</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Transactions</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Revenus</button> 
         </article>
 
-        <article class="container d-flex flex-column justify-content-center align-items-center ">
-<!--Carte globale -->
+        <article class="container d-flex flex-column justify-content-center align-items-center col-lg-9 ">
             <div class="card border-primary mb-3 mt-3 w-75">
-<!--Titre carte -->
+
                 <div class="card-header d-flex justify-content-center">
                     <h2 class="text-primary">Gestion des informations personnelles</h2>
                 </div>
-<!-- Partie affichage données informations personnelles -->
+
                 <div class="card-body row">
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-user mx-1"></i> 
                             <label class ="mx-2 text-primary" for="lastNameValue"><strong>Nom : </strong></label>
                             <label class="mx-2">##########<label>
@@ -48,7 +47,7 @@
                     </div>
 
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-user mx-1"></i> 
                             <label class ="mx-2 text-primary" for="firstNameValue"><strong>Prénom : </strong></label>
                             <label class="mx-2">##########<label>
@@ -60,19 +59,19 @@
                     </div>
 
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3">
                             <i class="fa fa-user mx-1"></i> 
                             <label class ="mx-2 text-primary" for="birthdateValue"><strong>Date de naissance : </strong></label>
                             <label class="mx-2">##########<label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
+                        <div class="col-2 d-flex  align-items-center mb-3">
                             <input type="mx-3" id="birthdateValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
 
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3">  
                             <i class="fa fa-user mx-1"></i> 
                             <label class ="mx-2 text-primary" for="addressUserValue"><strong>Adresse : </strong></label>
                             <label class="mx-2">##########<label>
@@ -84,7 +83,7 @@
                     </div>
 
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-user mx-1"></i> 
                             <label class ="mx-2 text-primary" for="cityUserValue"><strong>Ville : </strong></label>
                             <label class="mx-2">##########<label>
@@ -96,7 +95,7 @@
                     </div>
                     
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3">  
                             <i class="fa fa-user mx-1"></i> 
                             <label class ="mx-2 text-primary" for="postalCodeUserValue"><strong>Code postal : </strong></label>
                             <label class="mx-2">##########<label>
@@ -108,7 +107,7 @@
                     </div>
 
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-phone mx-1"></i> 
                             <label class ="text-primary" for="phoneUserValue"><strong>Numéro de téléphone  : </strong></label>
                             <label class="mx-2">##########<label>
@@ -120,7 +119,7 @@
                     </div>
 
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3">  
                             <i class="fa fa-envelope mx-1"></i> 
                             <label class ="mx-2 text-primary" for="emailValue"><strong> Email : </strong></label>
                             <label class="mx-2">##########<label>
@@ -132,7 +131,7 @@
                     </div>
 
                     <div class="row align-items-center mb-1">
-                        <div class="col-6 d-flex align-items-center mb-3"> 
+                        <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-lock mx-1"></i> 
                             <label class ="mx-2 text-primary" for="passwordValue"><strong> Mot de passe : </strong></label>
                             <label class="mx-2">##########<label>
@@ -142,10 +141,10 @@
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
-<!-- Partie boutons modifications et fermeture compte -->
-                    <div class="d-flex justify-content-center mb-2">
-                        <button type="button" class="btn btn-lg btn-warning">Modifier les données</button>
-                        <button type="button" class="btn btn-lg btn-danger mx-5">Fermer le compte</button>
+                    
+                    <div class="d-flex justify-content-center mb-2 row">
+                        <button type="button" class="btn btn-lg btn-warning col-lg-4 col-sm-12 m-3">Modifier les données</button>
+                        <button type="button" class="btn btn-lg btn-danger col-lg-4 m-3">Fermer le compte</button>
                     </div>
                 </div>
             </div>
