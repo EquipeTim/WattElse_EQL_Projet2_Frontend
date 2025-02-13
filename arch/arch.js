@@ -1,4 +1,4 @@
-//import{showAlert} from '../view/alert.js'
+
 'use strict';
 
 
@@ -13,20 +13,32 @@ fetch("../arch/linkHead.html")
   });
 
 
-let owner = sessionStorage.getItem("owner");
+const owner = sessionStorage.getItem("owner");
 
 
 const navigationHtml = owner
                             ? "../arch/ownerNavigation.html"
                             : "../arch/guestNavigation.html"
-  
+                           
+
 fetch("../arch/header.html")
     .then(response => response.text())
     .then(html => {
         document.getElementById("header").innerHTML = html
         fetch(navigationHtml)
         .then(response => response.text())
-        .then(html => document.getElementById("navigation").innerHTML = html)
+        .then(html => {document.getElementById("navigation").innerHTML = html
+
+
+          let userName = JSON.parse(owner);
+          console.log(owner)
+          if(userName){
+           
+            
+            document.getElementById('profilLink').innerHTML = ` ${userName.name}`
+            
+          }
+        })
     }
 )
 
@@ -44,53 +56,53 @@ function disconnect(){
 
 }
 
-whatAlert()
 
-function whatAlert(){
-  if (sessionStorage.getItem("disconnected") === "true") {
-    var alert = `
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          <strong>Information :</strong> Vous êtes actuellement déconnecté
+document.addEventListener('DOMContentLoaded', function() {
+  whatAlert();
+  function whatAlert() {
+    if (sessionStorage.getItem("disconnected") === "true") {
+      var alert = `
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Information :</strong> Vous êtes actuellement déconnecté
       `;
-    showAlert(alert);
-    sessionStorage.removeItem("disconnected");
-  }
-  if (sessionStorage.getItem("connected") === "true") {
-    var alert = `
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          <strong>Information :</strong> Vous êtes connecté
+      showAlert(alert);
+      sessionStorage.removeItem("disconnected");
+    }
+    if (sessionStorage.getItem("connected") === "true") {
+      var alert = `
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Information :</strong> Vous êtes connecté
       `;
-    showAlert(alert);
-    sessionStorage.removeItem("connected");
-  }
-  if (sessionStorage.getItem("registered") === "true") {
-    var alert = `
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          <strong>Félication :</strong> Vous êtes désormais inscrit sur notre site
+      showAlert(alert);
+      sessionStorage.removeItem("connected");
+    }
+    if (sessionStorage.getItem("registered") === "true") {
+      var alert = `
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Félicitation :</strong> Vous êtes désormais inscrit sur notre site
       `;
-    showAlert(alert);
-    sessionStorage.removeItem("registered");
+      showAlert(alert);
+      sessionStorage.removeItem("registered");
+    }
   }
-}
 
+  function showAlert(alert) {
+    var alertDiv = document.createElement('div');
+    alertDiv.classList.add('alert', 'alert-dismissible', 'alert-success');
+    alertDiv.innerHTML = alert;
+    var alertContainer = document.getElementById('alert');
+    
+    if (alertContainer) {
+      alertContainer.appendChild(alertDiv);
 
+      setTimeout(function() {
+        alertDiv.style.display = 'none';
+      }, 4000);
+    } else {
+      console.error("Alert container with id 'alert' not found in the DOM.");
+    }
+  }
 
-
-function showAlert(alert) {
-   
-  var alertDiv = document.createElement('div');
-  alertDiv.classList.add('alert', 'alert-dismissible', 'alert-success'); 
-
-
-  alertDiv.innerHTML = alert;
-
-  document.getElementById('alert').appendChild(alertDiv);
-
-  setTimeout(function() {
-      alertDiv.style.display = 'none'; 
-  }, 2000);
-
-}
-
-
-
+  // Call the whatAlert function if needed
+  whatAlert();
+});
