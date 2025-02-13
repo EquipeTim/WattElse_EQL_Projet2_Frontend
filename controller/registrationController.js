@@ -22,22 +22,7 @@ function handleFormSubmission() {
     const postalCode = document.getElementById('postalCodeValue').value;
     const email = document.getElementById('emailValue').value;
     const password = document.getElementById('passwordValue').value;
-
-
-    console.log("First Name: ", firstName);
-console.log("Last Name: ", lastName);
-console.log("Birthdate: ", birthdate);
-console.log("Phone Number: ", phoneNumber);
-console.log("Street Address: ", streetAddress);
-console.log("City: ", city);
-console.log("Postal Code: ", postalCode);
-console.log("Email: ", email);
-console.log("Password: ", password);
-
-
-  
    
-
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -56,17 +41,20 @@ console.log("Password: ", password);
 
 
 
-    fetch(`${backUrl}/registration/`, requestOptions )
-        .then(response => response.ok ? response.json() : Promise.reject(response))
-        .then(data => {
-            console.log(data)
-        })
-        .catch(response => {
-            console.error(
-                "Une erreur s'est produite lors de l'envoi des informations",
-                `${response.status} ${response.statusText}`
-            );
-        });
+    fetch(`${backUrl}/registration/`, requestOptions)
+    .then(response => {
+        console.log("Statut HTTP:", response.status); 
+        if (response.status === 200) {
+            
+            sessionStorage.setItem("registered", "true");
+            window.location.href = "home.html";
+        
+        } else {
+            return Promise.reject(`Erreur HTTP : ${response.status}`);
+        }
+    })
+    
 }
+
 
 
