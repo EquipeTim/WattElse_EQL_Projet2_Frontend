@@ -27,14 +27,13 @@ function authenticate() {
         .then(response => response.ok ? response.text() : Promise.reject(response))
         .then(data => {
             sessionStorage.setItem("owner", data);
+            sessionStorage.setItem("connected", "true");
             window.location.href = "home.html";
             
         })
         .catch(response => {
             incorrectLoginDisplay();
-            console.error(
-            "Une erreur s'est produite lors de l'authentification",
-            `${response.status} ${response.statusText}`);
+            console.error("Une erreur s'est produite lors de l'authentification",)
         });
 }
 
