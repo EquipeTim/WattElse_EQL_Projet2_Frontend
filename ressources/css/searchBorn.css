@@ -1,0 +1,16 @@
+#results {
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    
+    background-color: white;
+    width: 300px;
+    display: none;
+}
+.result-item {
+    padding: 8px;
+    cursor: pointer;
+}
+.result-item:hover {
+    background-color: #f1f1f1;
+}
