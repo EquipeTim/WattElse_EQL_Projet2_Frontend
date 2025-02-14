@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connecté - Gestion des véhicules</title>
+    <title>Connecté - Gestion des bornes</title>
     <script async src="../arch/arch.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -15,13 +15,28 @@
     <div id="header"></div>
 
     <section class="row h-100 w-100">
+        
         <article class="container m-0 p-0 bg-secondary col-lg-3">
-            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Données personnelles</button>
-            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Bornes</button>
-            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Véhicules</button>
-            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Moyens de paiement</button>
-            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Transactions</button>
-            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Revenus</button> 
+            <div class="row align-self-center">
+                <a href="userInfosManagement.html" target="_blank">
+                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Données personnelles</button>
+                </a>
+                <a href="chargingStationInfosManagement.html" target="_blank">
+                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Bornes</button>
+                </a>
+                <a href="carInfosManagement.html" target="_blank">
+                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Véhicules</button>
+                </a>
+                <a href="###############" target="_blank">
+                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Moyens de paiement</button>
+                </a>
+                <a href="#############" target="_blank">
+                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Transactions</button>
+                </a>
+                <a href="###########" target="_blank">
+                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Revenus</button>
+                </a>
+            </div>
         </article>
 
 
@@ -32,13 +47,125 @@
                 </div>
             </div>
 
-            <div class="card d-flex">
-                <div>
-
+<!--BORNE 2 : -->
+            <div class="card row">
+                <div class="card-header bg-secondary text-white">
+                    <h4>Gestion de la borne n°1 :</h4>
                 </div>
 
+                <div class="card-body row d-flex col-12">
+                        <div class="col-9">
+                            <div class="row">
+                                    <div class="w-50 mb-4">
+                                        <i class="fa fa-plug mx-1"></i>
+                                        <label class="text-primary" for="plugType1"><strong>Type de prise : </strong></label>
+                                        <select id="plugType1" class="form-select form-control col-8">
+                                            <option> 1 </option>
+                                        </select>
+                                    </div>
+                                    <div class="w-50">
+                                        <i class="fa fa-phone mx-1"></i>
+                                        <label class="text-primary" for="numberPhoneEmergency1"><strong>Numéro d'urgence</strong></label>
+                                        <input id="numberPhoneEmergency1" type="text" class="form-control col-8" placeholder="01 02 03 04 05"/> 
+                                    </div> 
+                            </div>
 
+                            <div class="row">
+                                <div class="w-50 mb-4">
+                                    <i class="fa fa-calendar mx-1"></i>
+                                    <label class="text-primary" for="unavaibilityStart1"><strong>Début d'indisponibilité :</strong></label>
+                                    <input id="unavaibilityStart1" type="date" class="form-control col-8"/>
+                                </div>
+                                <div class="w-50">
+                                    <i class="fa fa-calendar mx-1"></i>
+                                    <label class="text-primary" for="unavaibilityEnd1"><strong>Fin d'indisponibilité :</strong></label>
+                                    <input id="unavaibilityEnd2" type="date" class="form-control col-8"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="w-50 mb-4">
+                                    <i class="fa fa-comment mx-1"></i>
+                                    <label class="text-primary" for="unavaibilityType1"><strong>Type d'indisponibilité : </strong></label>
+                                    <select id="unavaibilityType1" class="form-select form-control col-8">
+                                        <option> 1 </option>
+                                    </select>
+                                </div>
+                                <div class="w-50">
+                                    <i class="fa fa-home mx-1"></i>
+                                    <label class="text-primary" for="adressStation1"><strong>Adresse  :</strong></label>
+                                    <input id="adressStation1" type="text" class="form-control col-8"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-3 justify-content-center align-self-center">
+                            <button class="btn btn-lg btn-primary col-12 w-100 mb-4 p-2">Modifier</button>
+                            <button class="btn btn-lg btn-danger col-12 p-2">Retirer</button>
+                        </div> 
+                </div>
             </div>
+
+            <hr>
+<!--BORNE 2 : -->
+            <div class="card row">
+                <div class="card-header bg-secondary text-white">
+                    <h4>Gestion de la borne n°1 :</h4>
+                </div>
+
+                <div class="card-body row d-flex col-12">
+                        <div class="col-9">
+                            <div class="row">
+                                    <div class="w-50 mb-4">
+                                        <i class="fa fa-plug mx-1"></i>
+                                        <label class="text-primary" for="plugType1"><strong>Type de prise : </strong></label>
+                                        <select id="plugType1" class="form-select form-control col-8">
+                                            <option> 1 </option>
+                                        </select>
+                                    </div>
+                                    <div class="w-50">
+                                        <i class="fa fa-phone mx-1"></i>
+                                        <label class="text-primary" for="numberPhoneEmergency1"><strong>Numéro d'urgence</strong></label>
+                                        <input id="numberPhoneEmergency1" type="text" class="form-control col-8" placeholder="01 02 03 04 05"/> 
+                                    </div> 
+                            </div>
+
+                            <div class="row">
+                                <div class="w-50 mb-4">
+                                    <i class="fa fa-calendar mx-1"></i>
+                                    <label class="text-primary" for="unavaibilityStart1"><strong>Début d'indisponibilité :</strong></label>
+                                    <input id="unavaibilityStart1" type="date" class="form-control col-8"/>
+                                </div>
+                                <div class="w-50">
+                                    <i class="fa fa-calendar mx-1"></i>
+                                    <label class="text-primary" for="unavaibilityEnd1"><strong>Fin d'indisponibilité :</strong></label>
+                                    <input id="unavaibilityEnd2" type="date" class="form-control col-8"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="w-50 mb-4">
+                                    <i class="fa fa-comment mx-1"></i>
+                                    <label class="text-primary" for="unavaibilityType1"><strong>Type d'indisponibilité : </strong></label>
+                                    <select id="unavaibilityType1" class="form-select form-control col-8">
+                                        <option> 1 </option>
+                                    </select>
+                                </div>
+                                <div class="w-50">
+                                    <i class="fa fa-home mx-1"></i>
+                                    <label class="text-primary" for="adressStation1"><strong>Adresse  :</strong></label>
+                                    <input id="adressStation1" type="text" class="form-control col-8"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-3 justify-content-center align-self-center">
+                            <button class="btn btn-lg btn-primary col-12 w-100 mb-4 p-2">Modifier</button>
+                            <button class="btn btn-lg btn-danger col-12 p-2">Retirer</button>
+                        </div> 
+                </div>
+            </div>
+
 
         </article>
 
