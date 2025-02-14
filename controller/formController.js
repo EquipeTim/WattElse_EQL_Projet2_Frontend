@@ -6,10 +6,13 @@ function validatePhoneNumber() {
     if (phonePattern.test(phoneInput.value)) {
         phoneHelp.style.visibility = 'hidden';
         phoneInput.classList.remove('is-invalid');
+        return true;
     } else {
         phoneHelp.style.visibility = 'visible';
         phoneInput.classList.add('is-invalid');
+        return false;
     }
+    
 }
 
 
@@ -21,10 +24,13 @@ function validateEmail() {
     if (emailPattern.test(emailInput.value)) {
         emailHelp.style.visibility = 'hidden';  // Masquer le message d'erreur
         emailInput.classList.remove('is-invalid');
+        return true;
     } else {
         emailHelp.style.visibility = 'visible';  // Afficher le message d'erreur
         emailInput.classList.add('is-invalid');
+        return false;
     }
+   
 }
 
 function validatePassword() {
@@ -35,8 +41,11 @@ function validatePassword() {
     if (passwordPattern.test(passwordInput.value)) {
         passwordHelp.style.visibility = 'hidden';
         passwordInput.classList.remove('is-invalid');
+        return true;
     } else {
         passwordHelp.style.visibility = 'visible';
         passwordInput.classList.add('is-invalid');
+        return false;
     }
+    
 }

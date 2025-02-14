@@ -13,100 +13,92 @@
 
 </head>
 
-<body>
+<body >
     <div id="header"></div>
     <section class="container mb-5">
 
         <div class="container">
 
             <div class="row justify-content-center">
-                <div class="col-12 text-center mb-4">
+                <div class="col-12 text-center mb-4 mt-4">
                     <h1>Création d'un compte utilisateur</h1>
                 </div>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10 col-12 w-75">
-                    <div class="card border-primary card-style w-100" style="border-radius: 15px;">
-                        <div class="card-body">
-                            <div class="row align-items-center pt-3 pb-2">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstNameValue" class="mb-0">Prénom</label>
+            <div class="row justify-content-center  ">
+                <div class="col-lg-8 col-md-10 col-12 w-100">
+                    <div class="card bg-white border-0  w-100" >
+                        <div class="card-body d-flex justify-content-center ">
+
+
+                            
+                            <div class="row g-3 col-10 ">
+                              
+                                <div class="col-md-6 ">
+                                    <label for="firstNameValue" class="form-label">Prénom</label>
                                     <input type="text" id="firstNameValue" class="form-control form-control-lg" placeholder="Prénom"/>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastNameValue" class="mb-0">Nom</label>
+                                <div class="col-md-6">
+                                    <label for="lastNameValue" class="form-label">Nom</label>
                                     <input type="text" id="lastNameValue" class="form-control form-control-lg" placeholder="Nom"/>
                                 </div>
-                            </div>
-                            <div class="row align-items-center pt-3 pb-2">
-                                <div class="col-md-6 mb-3">
-                                    <label for="birthdateValue" class="mb-1 mt-1">Date de naissance</label>
-                                    <input type="date" id="birthdateValue" class="form-select"/>
+            
+                             
+                                <div class="col-md-6">
+                                    <label for="birthdateValue" class="form-label">Date de naissance</label>
+                                    <input type="date" id="birthdateValue" class="form-select form-select-lg"/>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="phoneNumberValue" class="mb-0">Numéro de téléphone</label>
+                                <div class="col-md-6">
+                                    <label for="phoneNumberValue" class="form-label">Numéro de téléphone</label>
                                     <input type="tel" id="phoneNumberValue" class="form-control form-control-lg"
-                                           placeholder="Exemple : 06 50 13 20 40"
-                                           oninput="validatePhoneNumber()" />
+                                           placeholder="Exemple : 06 50 13 20 40" oninput="validatePhoneNumber()" />
                                     <small id="phoneHelp" class="form-text text-danger" style="visibility: hidden;">
                                         Le numéro de téléphone n'est pas valide. Format attendu : 06 50 13 20 40.
                                     </small>
                                 </div>
-                            </div>
-        
-                            <hr class="mx-n3">
-        
-                            <div class="row align-items-center pt-3 pb-2">
-                                <div class="col-md-6 mb-3">
-                                    <label for="streetAddressValue" class="mb-0">Adresse :</label>
+            
+                               
+                                <div class="col-md-6">
+                                    <label for="streetAddressValue" class="form-label">Adresse</label>
                                     <input type="text" id="streetAddressValue" class="form-control form-control-lg" placeholder="Rentrez le nom de la rue"/>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="cityValue" class="mb-0">Ville :</label>
+                                <div class="col-md-6">
+                                    <label for="cityValue" class="form-label">Ville</label>
                                     <input type="text" id="cityValue" class="form-control form-control-lg" placeholder="Rentrez le nom de la ville"/>
                                 </div>
-                            </div>
-                            <div class="row d-flex justify-content-center align-items-center pt-3 pb-2">
-                                <div class="col-md-7 mb-3">
-                                    <label for="postalCodeValue" class="mb-0">Code postal :</label>
+            
+                           
+                                <div class="col-md-12 mx-auto">
+                                    <label for="postalCodeValue" class="form-label">Code postal</label>
                                     <input type="text" id="postalCodeValue" class="form-control form-control-lg" placeholder="Code postal"/>
                                 </div>
-                            </div>
-        
-                            <hr class="mx-n3">
-        
-                            <div class="row align-items-center pt-3 pb-2">
-                                <div class="col-md-6 mb-3">
-                                    <label for="emailValue" class="mb-0">Email</label>
+            
+                                
+                                <div class="col-md-6">
+                                    <label for="emailValue" class="form-label">Email</label>
                                     <input type="email" id="emailValue" class="form-control form-control-lg" placeholder="Exemple : test@example.com" oninput="validateEmail()" />
                                     <small id="emailHelp" class="form-text text-danger" style="visibility: hidden;">
                                         Veuillez entrer un email valide.
                                     </small>
                                 </div>
-        
-                                <div class="col-md-6 mb-3">
-                                    <label for="passwordValue" class="mb-0">Mot de passe</label>
+                                <div class="col-md-6">
+                                    <label for="passwordValue" class="form-label">Mot de passe</label>
                                     <input type="password" id="passwordValue" class="form-control form-control-lg" placeholder="Exemple : Passw0rd!" oninput="validatePassword()" />
                                     <small id="passwordHelp" class="form-text text-danger" style="visibility: hidden;">
                                         Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial.
                                     </small>
                                 </div>
-                            </div>
-        
-                            <hr class="mx-n3">
-        
-                            <div class="row d-flex justify-content-center align-items-center pt-3 pb-2">
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <button type="button" id="registrationButton" class="btn btn-success">Cliquez ici pour valider votre inscription :</button>
+                                <div class="d-flex justify-content-center text-danger col-12"><p id="messageLabel"></p></div>
+                                <!-- Bouton de soumission -->
+                                <div class="col-md-7 mx-auto text-center mt-4 mb-5">
+                                    <button type="button" id="registrationButton" class="btn btn-success btn-lg px-4">Cliquez ici pour valider votre inscription</button>
                                 </div>
                             </div>
-        
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            
         
         
     </section>

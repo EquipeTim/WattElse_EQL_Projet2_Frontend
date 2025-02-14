@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connecté - Moyens de paiement</title>
     <script async src="../arch/arch.js"></script>
+    <script async type="module" src="../controller/userController.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-
 </head>
 
 <body>
@@ -34,14 +33,15 @@
                 </div>
 
                 <div class="card-body row">
+                    <!-- Example of dynamic user information display -->
                     <div class="row align-items-center mb-1">
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-user mx-1"></i> 
                             <label class ="mx-2 text-primary" for="lastNameValue"><strong>Nom : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class="mx-2" id="lastNameDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
-                            <input type="mx-3" id="lastNameValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3"> 
+                            <input type="text" id="lastNameValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
@@ -50,58 +50,58 @@
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-user mx-1"></i> 
                             <label class ="mx-2 text-primary" for="firstNameValue"><strong>Prénom : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class="mx-2" id="firstNameDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
-                            <input type="mx-3" id="firstNameValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3"> 
+                            <input type="text" id="firstNameValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
 
                     <div class="row align-items-center mb-1">
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3">
-                            <i class="fa fa-user mx-1"></i> 
+                            <i class="fa fa-calendar mx-1"></i> 
                             <label class ="mx-2 text-primary" for="birthdateValue"><strong>Date de naissance : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class="mx-2" id="birthdateDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3">
-                            <input type="mx-3" id="birthdateValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3">
+                            <input type="date" id="birthdateValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
 
                     <div class="row align-items-center mb-1">
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3">  
-                            <i class="fa fa-user mx-1"></i> 
+                            <i class="fa fa-home mx-1"></i> 
                             <label class ="mx-2 text-primary" for="addressUserValue"><strong>Adresse : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class="mx-2" id="addressUserDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
-                            <input type="mx-3" id="addressUserValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3"> 
+                            <input type="text" id="addressUserValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
 
                     <div class="row align-items-center mb-1">
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
-                            <i class="fa fa-user mx-1"></i> 
+                            <i class="fa fa-city mx-1"></i> 
                             <label class ="mx-2 text-primary" for="cityUserValue"><strong>Ville : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class="mx-2" id="cityUserDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
-                            <input type="mx-3" id="cityUserValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3"> 
+                            <input type="text" id="cityUserValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
-                    
+
                     <div class="row align-items-center mb-1">
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3">  
-                            <i class="fa fa-user mx-1"></i> 
+                            <i class="fa fa-map-marker mx-1"></i> 
                             <label class ="mx-2 text-primary" for="postalCodeUserValue"><strong>Code postal : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class="mx-2" id="postalCodeUserDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
-                            <input type="mx-3" id="postalCodeUserValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3"> 
+                            <input type="text" id="postalCodeUserValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
@@ -109,11 +109,11 @@
                     <div class="row align-items-center mb-1">
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-phone mx-1"></i> 
-                            <label class ="text-primary" for="phoneUserValue"><strong>Numéro de téléphone  : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class ="mx-2 text-primary" for="phoneUserValue"><strong>Numéro de téléphone  : </strong></label>
+                            <label class="mx-2" id="phoneUserDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
-                            <input type="mx-3" id="phoneUserValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3"> 
+                            <input type="text" id="phoneUserValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
@@ -121,11 +121,11 @@
                     <div class="row align-items-center mb-1">
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3">  
                             <i class="fa fa-envelope mx-1"></i> 
-                            <label class ="mx-2 text-primary" for="emailValue"><strong> Email : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class ="mx-2 text-primary" for="emailValue"><strong>Email : </strong></label>
+                            <label class="mx-2" id="emailUserDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
-                            <input type="mx-3" id="emailValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3"> 
+                            <input type="email" id="emailValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
@@ -133,24 +133,24 @@
                     <div class="row align-items-center mb-1">
                         <div class="col-lg-6 col-sm-12 d-flex align-items-center mb-3"> 
                             <i class="fa fa-lock mx-1"></i> 
-                            <label class ="mx-2 text-primary" for="passwordValue"><strong> Mot de passe : </strong></label>
-                            <label class="mx-2">##########<label>
+                            <label class ="mx-2 text-primary" for="passwordValue"><strong>Mot de passe : </strong></label>
+                            <label class="mx-2" id="passwordUserDisplay">##########</label>
                         </div>
-                        <div class="col-2 d-flex  align-items-center mb-3"> 
-                            <input type="mx-3" id="passwordValue"/>
+                        <div class="col-2 d-flex align-items-center mb-3"> 
+                            <input type="password" id="passwordValue"/>
                             <button type="button" class="btn btn-lg"><i class="fa fa-check text-success"></i></button>
                         </div>
                     </div>
-                    
+
                     <div class="d-flex justify-content-center mb-2 row">
                         <button type="button" class="btn btn-lg btn-warning col-lg-4 col-sm-12 m-3">Modifier les données</button>
-                        <button type="button" class="btn btn-lg btn-danger col-lg-4 m-3">Fermer le compte</button>
+                        <button type="button" id="deleteUserButton" class="btn btn-lg btn-danger col-lg-4 m-3">Fermer le compte</button>
                     </div>
                 </div>
             </div>
         </article>
     </section>
 
-    <div id="footer" > </div>
+    <div id="footer"></div>
 </body>
-
+</html>
