@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecté - Ajout véhicule</title>
+    <script async src="../arch/arch.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+</head>
+
+
+<body>
+    <div id="header"> </div>
+
+    <section class="h-100 row w-100">
+        <article class="container m-0 p-0 bg-secondary col-lg-3">
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Données personnelles</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Bornes</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Véhicules</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Moyens de paiement</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Transactions</button>
+            <button type="button" class="w-100 m-0 btn btn-outline-primary mt-4">Revenus</button> 
+        </article>
+
+        <article class="container d-flex flex-column justify-content-center align-items-center col-6 mt-2s mb-5">
+            <div class="row mt-4 mb-4">
+                <h1 class="text-primary"><strong>Veuillez ajouter un nouveau véhicule :</strong></h1>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-10 w-100">
+                        <div class="card bg-white border-0 w-100" >
+                            <div class="card-body d-flex justify-content-center ">
+                                <div class="row g-3 col-12">
+                                    <div class="col-md-6">
+                                        <label for="licensePlateNumberValue" class="form-label">Veuillez rentrer votre numéro d'immatriculation : </label>
+                                        <input id="licensePlateNumberValue" type="text" class="form-control form-control-lg" placeholder=" AA-001-AA"/>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="brandCarValue" class="form-label">Veuillez sélectionnez le marque de la voiture :</label>
+                                        <select id="brandCarValue" class="form-select form-select-lg form-control">
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                        </select>
+                                    </div>
+                
+                                    <div class="col-md-6">
+                                        <label for="modelCarValue" class="form-label">Veuillez sélectionnez le modèle de la voiture :</label>
+                                        <select id="modelCarValue" class="form-select form-select-lg form-control">
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="plugTypeValue" class="form-label">Veuillez sélectionnez le type de prise pour la voiture :</label>
+                                        <select id="plugTypeValue" class="form-select form-select-lg form-control">
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6 ">
+                                        <label for="maxElectricPowerValue" class="form-label">Veuillez rentrer la puissance maximum de charge de la voiture : </label>
+                                        <input id="maxElectricPowerValue" type="text" class="form-control form-control-lg" placeholder="0.0 kWh"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center mb-2 row">
+                    <button type="button" class="btn btn-lg btn-success col-lg-4 col-sm-12 mt-3">Cliquez ici pour ajouter la voiture à votre profil</button>
+                </div>
+            </div>
+
+        </article>
+    </section>
+
+    <div id="footer" > </div>
+</body>
+
