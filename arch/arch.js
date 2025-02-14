@@ -84,6 +84,14 @@ document.addEventListener('DOMContentLoaded', function() {
       showAlert(alert);
       sessionStorage.removeItem("registered");
     }
+    if (sessionStorage.getItem("closeAccount") === "true") {
+      var alert = `
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong> Réussite de la procédure :</strong> Vous avez fermer votre compte
+      `;
+      showAlert(alert);
+      sessionStorage.removeItem("closeAccount");
+    }
   }
 
   function showAlert(alert) {
