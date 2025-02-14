@@ -4,8 +4,8 @@ import { getBackUrl } from "./backUrl.js";
 const backUrl = `${getBackUrl()}/user`;
 
 
-const connectionButton = document.getElementById("registrationButton");
-connectionButton.addEventListener("click", verifyForm);
+const connectionButton = document.getElementById("addCarButton");
+connectionButton.addEventListener("click", handleFormSubmission);
 
 function verifyForm() {
     

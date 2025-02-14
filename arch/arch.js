@@ -31,7 +31,7 @@ fetch("../arch/header.html")
 
 
           let userName = JSON.parse(owner);
-      
+          console.log(owner)
           if(userName){
            
             
@@ -84,14 +84,31 @@ document.addEventListener('DOMContentLoaded', function() {
       showAlert(alert);
       sessionStorage.removeItem("registered");
     }
-    if (sessionStorage.getItem("closeAccount") === "true") {
+    if (sessionStorage.getItem("closedAccount") === "true") {
       var alert = `
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong> Réussite de la procédure :</strong> Vous avez fermer votre compte
       `;
       showAlert(alert);
-      sessionStorage.removeItem("closeAccount");
+      sessionStorage.removeItem("closedAccount");
     }
+    if (sessionStorage.getItem("modifiedAccount") === "true") {
+      var alert = `
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong> Réussite de la procédure :</strong> Vous avez bien modifié votre compte
+      `;
+      showAlert(alert);
+      sessionStorage.removeItem("modifiedAccount");
+    }
+    if (sessionStorage.getItem("addedCar") === "true") {
+      var alert = `
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong> Réussite de la procédure :</strong> Vous avez ajouté une voiture
+      `;
+      showAlert(alert);
+      sessionStorage.removeItem("addedCard");
+    }
+    
   }
 
   function showAlert(alert) {
