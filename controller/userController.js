@@ -17,7 +17,7 @@ function fetchUser() {
     fetch(`${backUrl}/details`, {
         method: "GET",
         headers: {
-            "Authorization": "Bearer " + owner.token,  // Le token dans l'en-tête
+            "Authorization": "Bearer " + owner.token, 
             "Content-Type": "application/json"
         },
        

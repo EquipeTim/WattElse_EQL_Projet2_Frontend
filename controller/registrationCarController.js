@@ -67,8 +67,8 @@ function handleFormSubmission() {
         .then(response => {
             console.log("Statut HTTP:", response.status); 
             if (response.status === 200) {
-                sessionStorage.setItem("addedCar","true")
-                 window.location.href = "userInfosManagement.html"
+                sessionStorage.setItem("modifiedAccount","true")
+             window.location.href = "home.html"
            
             } 
             else{

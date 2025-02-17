@@ -31,7 +31,7 @@ fetch("../arch/header.html")
 
 
           let userName = JSON.parse(owner);
-          console.log(owner)
+      
           if(userName){
            
             
@@ -108,6 +108,14 @@ document.addEventListener('DOMContentLoaded', function() {
       showAlert(alert);
       sessionStorage.removeItem("addedCard");
     }
+    if (sessionStorage.getItem("addedCreditCard") === "true") {
+      var alert = `
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong> Réussite de la procédure :</strong> Vous avez ajouté une carte de crédit
+      `;
+      showAlert(alert);
+      sessionStorage.removeItem("addedCreditCard");
+    }
     
   }
 
@@ -128,6 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Call the whatAlert function if needed
+ 
   whatAlert();
 });
