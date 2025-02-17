@@ -8,7 +8,6 @@
     <script async src="../arch/arch.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script async type="module" src="../controller/payementController.js"></script>
 </head>
 
 
@@ -93,16 +92,11 @@
                                         <label class="mx-2 text-primary" for="cvvCardValue"><strong>Numéro CVV : </strong></label>
                                         <input type="text" id="cvvCardValue" class="form-control text-center"/>
                                     </div>
-
-                                                     
-                                    <div class="d-flex justify-content-center mb-2 row">
-                                        <button type="button" id="creditCardAddButton" class="btn btn-lg btn-success col-lg-4 col-sm-12 m-3">Ajouter le moyen de payement</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                             
-                      
+                        <!-- ONGLET 2 COMPTE BANCAIRE : -->
                         <div class="tab-pane fade" id="bank-account-pane" role="tabpanel" aria-labelledby="bank-account-tab" tabindex="0">
                             <div class="container">
                                 <div class="row align-items-center">
@@ -123,17 +117,16 @@
                                         <label class="mx-2 text-primary" for="dateBankAccountValue"><strong>BIC SWIFT :</strong></label>
                                         <input type="text" id="dateBankAccountValue" class="form-control text-center"/>
                                     </div>
-
-                                    <div class="d-flex justify-content-center mb-2 row">
-                                        <button type="button" id="accountBankAddButton" class="btn btn-lg btn-success col-lg-4 col-sm-12 m-3">Ajouter le compte bancaire</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-               
+                <!-- BOUTONS DE VALIDATION : -->
+                <div class="d-flex justify-content-center mb-2 row">
+                    <button type="button" class="btn btn-lg btn-success col-lg-4 col-sm-12 m-3">Cliquez ici pour ajouter le moyen de paiement</button>
+                </div>
 
             </div>
         </article>
