@@ -1,6 +1,5 @@
 export function displayUserStatut(data) {
-    
-    // Update input fields
+   
     document.getElementById("lastNameValue").value = `${data.name}`;
     document.getElementById("firstNameValue").value = `${data.surname}`;
     document.getElementById("birthdateValue").value = `${data.birthdate}`;
