@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
   whatAlert();
   function whatAlert() {
     if (sessionStorage.getItem("disconnected") === "true") {
+      console.log("d")
       var alert = `
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Information :</strong> Vous êtes actuellement déconnecté
