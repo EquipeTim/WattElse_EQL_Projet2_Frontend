@@ -41,13 +41,13 @@ function handleFormSubmission() {
     fetch(`${backUrl}/add/`, requestOptions)
         .then(response => {
             console.log("Statut HTTP:", response.status); 
-            if (response.status === 200) {
-                sessionStorage.setItem("modifiedAccount","true")
-            
-           
+            if (response.status === 400) {
+                document.getElementById("messageErrorCarAdd").innerText = "Tous les champs ne sont pas remplis correctement";
+                return Promise.reject(`Erreur HTTP : ${response.status}`);
             } 
-            else{
-                console.log("erreur")
+            else {
+                sessionStorage.setItem("added", "true");
+                window.location.href = "chargingStationInfosManagement.html";
             }
         })
         .catch(error => {

@@ -87,7 +87,7 @@ function fetchBrand(selectedBrand, selectedModel, uniqueId) {
 }
 
 function fetchModelsForBrand(brand, selectedModel, selectedBrand, uniqueId) {
-    fetch(`${backUrlComponents}/model/${brand}`, {
+    fetch(`${backUrlComponents}/${brand}/models/`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json"
