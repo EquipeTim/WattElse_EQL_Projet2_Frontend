@@ -13,7 +13,6 @@ const accountBankAddButton = document.getElementById("accountBankAddButton");
 accountBankAddButton.addEventListener("click",accountBankHandleFormSubmission);
 
 function creditCardHandleFormSubmission() {
-    
 
     const userBankCardValue = document.getElementById('userBankCardValue').value;
     const numberBankCardValue = document.getElementById('numberBankCardValue').value;
