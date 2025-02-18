@@ -19,7 +19,7 @@ function fetchBorn(){
     })
     .then(data => {
         
-        const selectElement = document.getElementById('selectPrise'); 
+        const selectElement = document.getElementById('plugTypeValue'); 
      
         data.forEach(item => {
             const option = document.createElement('option');

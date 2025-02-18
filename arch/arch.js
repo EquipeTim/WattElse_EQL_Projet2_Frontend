@@ -140,3 +140,38 @@ document.addEventListener('DOMContentLoaded', function() {
  
   whatAlert();
 });
+function redirectWithParams() {
+  
+  let radiusValue = document.getElementById("radiusValue").value;
+  let dateValue = document.getElementById("dateValue").value;
+  let plugTypeSelect = document.getElementById("plugTypeValue");
+  let plugTypeValue = plugTypeSelect.options[plugTypeSelect.selectedIndex].textContent;
+
+  const address = document.getElementById("placeValue").value;
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1`;
+  
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          if (data.length > 0) {
+              const lat = data[0].lat;
+              const lon = data[0].lon;
+            
+              location.href = 'displayBorns.html?radius=' + radiusValue + '&date=' + dateValue + '&plugType=' + plugTypeValue 
+              + '&longitude=' + lon + '&latitude=' + lat;
+              
+          } else {
+              console.log("Adresse introuvable");
+          }
+      })
+      .catch(error => {
+          console.log("Erreur : ", error);
+      });
+
+     
+      
+}
+
+
+
+

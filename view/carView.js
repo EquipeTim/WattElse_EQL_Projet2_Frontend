@@ -71,18 +71,7 @@ export function displayCars(item, i) {
     </div>
     `;
 
-
     const carsDiv = document.getElementById('informationCars');
     carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
 
-
-
-    
- 
-
-
-   
-
-   
-  
 }
