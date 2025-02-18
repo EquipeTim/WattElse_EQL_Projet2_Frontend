@@ -31,7 +31,7 @@ function fetchUser() {
         return response.json();
     })
     .then(data => {
-        
+        console.log(data)
         displayUserStatut(data)
         
     })

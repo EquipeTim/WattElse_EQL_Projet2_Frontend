@@ -8,40 +8,13 @@ registeredButton.addEventListener("click", handleFormSubmission);
 
 const owner = JSON.parse(sessionStorage.getItem("owner"));
 
-function verifyForm() {
-    
-    const licensePlateNumber = document.getElementById('licensePlateNumberValue').value;
-    const brandCar = document.getElementById('brandCarValue').value;
-    const modelCar = document.getElementById('modelCarValue').value;
-    const plugType = document.getElementById('plugTypeValue').value;
-    const maxElectricPower = document.getElementById('maxElectricPowerValue').value;
-    
-    if (!firstName || !lastName || !birthdate || !phoneNumber || !streetAddress || !city || !postalCode || !email || !password) {
-        document.getElementById("messageLabel").innerText = "Veuillez remplir tous les champs du formulaire ";
-       
-    }
-    else{
-        if(validatePhoneNumber() == true && validateEmail() && validatePassword()  ){
-        
-            handleFormSubmission();
-            
-        }
-        else{
-            document.getElementById("messageLabel").innerText = 
-            "Veuillez renseigner des données valides pour chaque champs du formulaire ";
-       
-        }
-       
-        
-    }
-}
 
 function handleFormSubmission() {
     
-    const licensePlateNumber = document.getElementById('licensePlateNumberValue').value;
-    const brandCar = document.getElementById('brandCarValue').value;
-    const modelCar = document.getElementById('modelCarValue').value;
-    const plugType = document.getElementById('plugTypeValue').value;
+    const licensePlateNumber = document.getElementById('licenseCarValue').value;
+    const brandCar = document.getElementById('brandCarValue_1').value;
+    const modelCar = document.getElementById('modelCarValue_1').value;
+    const plugType = document.getElementById('plugTypeValue_1').value;
     const maxElectricPower = document.getElementById('maxElectricPowerValue').value;
     const currentDate = new Date();
     const addDate = currentDate.toISOString().slice(0, 19).replace('T', ' ');
@@ -56,10 +29,12 @@ function handleFormSubmission() {
         body: JSON.stringify({ 
             licensePlateNumber: licensePlateNumber,
             registrationDateCar:  addDate,
-            removeDateCar:"2025-02-25 16:16:37",
-            maxElectricPower:maxElectricPower,
-            idModelCar: 1,
+            brand: brandCar,
+            carModel:modelCar,
+            plug : plugType,
+            maxElectricPower : maxElectricPower,
             userId: owner.userId
+            
         })
     };
     
@@ -68,7 +43,7 @@ function handleFormSubmission() {
             console.log("Statut HTTP:", response.status); 
             if (response.status === 200) {
                 sessionStorage.setItem("modifiedAccount","true")
-             window.location.href = "home.html"
+            
            
             } 
             else{

@@ -9,8 +9,8 @@ const owner = JSON.parse(sessionStorage.getItem("owner"));
 const creditCardAddButton = document.getElementById("creditCardAddButton");
 creditCardAddButton.addEventListener("click", creditCardHandleFormSubmission);
 
-const accountBankHandleFormSubmission = document.getElementById("accountBankHandleFormSubmission");
-accountBankHandleFormSubmission.addEventListener("click", creditCardHandleFormSubmission);
+const accountBankAddButton = document.getElementById("accountBankAddButton");
+accountBankAddButton.addEventListener("click",accountBankHandleFormSubmission);
 
 function creditCardHandleFormSubmission() {
     
@@ -60,7 +60,7 @@ function accountBankHandleFormSubmission() {
 
     const userBankAccountValue = document.getElementById('userBankAccountValue').value;
     const ibanValue = document.getElementById('ibanValue').value;
-    const dateBankAccountValue = document.getElementById('dateBankAccountValue').value;
+    const swiftValue = document.getElementById('swiftValue').value;
 
     const requestOptions = {
         method: "POST",
@@ -68,17 +68,19 @@ function accountBankHandleFormSubmission() {
             "Authorization": "Bearer " + owner.token, 
          },
         body: JSON.stringify({ 
-            cardHolderName: userBankCardValue,
-            numberCard : numberBankCardValue,
-            expirationDate: dateBankCardValue,
-            cvvNumber: cvvCardValue,
-
+          
+            iban :ibanValue,
+            ownerName : userBankAccountValue,
+            swift : swiftValue,
+            userId : owner.userId
+        
+        
         })
     };
 
 
 
-    fetch(`${backUrl}/card/add`, requestOptions)
+    fetch(`${backUrl}/account/add`, requestOptions)
     .then(response => {
         console.log("Statut HTTP:", response.status); 
         if (response.status === 200) {
