@@ -40,7 +40,7 @@ export function displayBorns(item,i){
 
 
 export function displayBornOfTransaction(item){
-   console.log(item)
+   
     
     const cardHTML = `
     <section class="container d-flex mt-2  mb-2">
@@ -114,19 +114,12 @@ export function displayBornOfTransaction(item){
             
             </div>
 
-            <div class="d-flex justify-content-center mb-2 row">
-                <button type="button" id="addCarButton" class="btn btn-lg btn-success col-lg-4 col-sm-12 mt-3">Confirmer réservation</button>
+            <div class="d-flex justify-content-center mb-2 row"> 
+                <button type="button" id="validateTransaction" class="btn btn-lg btn-success col-lg-4 col-sm-12 mt-3">Confirmer réservation</button>
             </div>
-
-
-            
-
-            
+    
 
         </article>
-
-
-
 
     </section>
 
@@ -135,6 +128,11 @@ export function displayBornOfTransaction(item){
 
     const carsDiv = document.getElementById('informationBorn');
     carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
-    
+    document.getElementById('validateTransaction').addEventListener('click', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const idBorn = urlParams.get('idBorn');
+        var url = "popupReservation.html?idBorn=" + encodeURIComponent(idBorn);
+        window.location.href = url;
+    });
 
 }

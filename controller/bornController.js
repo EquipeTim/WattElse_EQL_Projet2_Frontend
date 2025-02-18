@@ -67,7 +67,7 @@ function searchBorn(){
     
     const urlParams = new URLSearchParams(window.location.search);
 
-    // Obtenir les valeurs des paramètres
+
     const idBorn = urlParams.get('idBorn');
     
     fetch(`${backUrl}/info/${idBorn}`, {
@@ -88,7 +88,7 @@ function searchBorn(){
     .then(data => {
         displayBornOfTransaction(data);
    
-        console.log(data);
+      
        
         
     })
