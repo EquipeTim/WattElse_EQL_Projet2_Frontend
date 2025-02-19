@@ -67,8 +67,6 @@ function handleFormSubmission() {
         })
     };
 
-
-
     fetch(`${backUrl}/registration/`, requestOptions)
     .then(response => {
         console.log("Statut HTTP:", response.status); 

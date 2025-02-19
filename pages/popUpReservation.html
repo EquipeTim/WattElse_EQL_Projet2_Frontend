@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connecté - Gestion des informations personnelles</title>
     <script async src="../arch/arch.js"></script>
-    <script async type="module" src="../controller/userController.js"></script>
+    <script async type="module" src="../controller/bornController.js"></script>
+    <script async type="module" src="../controller/payementController.js"></script>
+    <script async type="module" src="../controller/registrationReservation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </head>
@@ -23,16 +25,16 @@
             <div class="container col-md-8 mb-3">
                 <div class="card d-flex border-secondary rounded-5 align-items-center justify-content-center">
                     <div class="d-flex mb-2 mt-2">
-                        <h3 class="text-secondary fw-bold mx-2">Pour la borne sélectionnée n° :</h3>
-                        <h3 class="text-secondary fw-bold">XXXXXXXXXXXX</h3>
+                        <h3 class="text-secondary fw-bold ">Borne sélectionnée n°: </h3>
+                        <h3 class="text-secondary fw-bold" id="idBornValue"></h3>
                     </div>
                     <div class="d-flex">
-                        <h4 class="text-secondary fw-bold mx-2"><i class="fa fa-home mx-1"></i>Adresse de la borne :  </h4>
-                        <label class="text-secondary">XXXXXXXXXX</label>
+                        <h4 class="text-secondary fw-bold "><i class="fa fa-home mx-1"></i>Adresse de la borne :  </h4>
+                        <h4 class="text-secondary" id="adressBornValue"></h4>
                     </div>
                     <div class="d-flex">
-                        <h5 class="text-secondary fw-bold mx-2">Numéro d'urgence de la borne : </h4>
-                        <label class="text-secondary">XXXXXXXXXX</label>
+                        <h4 class="text-secondary fw-bold " id="priceTypeValue"> </h4>
+                        <h4 class="text-secondary " id="priceValue"></h4>
                     </div>
                 </div>
             </div>
@@ -45,13 +47,20 @@
             <form class="container col-lg-7 mt-2 mb-5" id="#########">
                 <div class="row">
                     <div class="col-lg-6">
-                        <label for="#######" class="fw-bold">Date de début de réservation :</label>
-                        <input type="date" id="#######" class="form-control form-control-lg"/>
+                        <label for="startDateValue" class="fw-bold">Date de début de réservation :</label>
+                        <input type="date" id="startDateValue" class="form-control form-control-lg"/>
                     </div>
                     <div class="col-lg-6">
-                        <label for="#######" class="fw-bold">Durée de réservation :</label>
-                        <input type="time" id="#######" class="form-control form-control-lg"/>
+                        <label for="durationReservationValue" class="fw-bold">Durée de réservation :</label>
+                        <input id="durationReservationValue" class="form-control form-control-lg"/>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="startHourValue" class="fw-bold">Heure de réservation :</label>
+                        <input  id="startHourValue" class="form-control form-control-lg"/>
+                    </div>
+                  
                 </div>
             </form>
 
@@ -60,23 +69,32 @@
                 <span class="position-absolute top-50 translate-middle bg-white px-3 fw-bold"><h4>Moyen de paiement à sélectionner : </h4></span>
             </div>
 
-            <div class="container col-lg-5">
-                <div class="card border-dark">
-                    <div class="card-header">Moyen de paiement 1 </div>
+            <div class="container col-lg-6">
+                <div class="card border-dark" id="informationPayment1">
+                    <div class="card-header">Cartes bancaires</div>
                     <div class="card-body">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="optionsRadios" id="radioButtonPayment1" value="option1" checked="">
-                            <div class="row">
-                                <label for="radioButtonPayment1" class="fw-bold">Carte bancaire :</label>
-                                <label></label>
-                            </div>
+                            <div id="cardInformation"></div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
+            <div class="container col-lg-6">
+                <div class="card border-dark" id="informationPayment2">
+                    <div class="card-header">Compte bancaire</div>
+                    <div class="card-body">
+                        <div class="form-check">
+                            <div id="accountInformation"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+           
+            </div>
             <div class="container d-flex align-items-center justify-content-center mt-3">
-                <button type="button" class="btn btn-success btn-block mb-4" id="#######">Valider la réservation :</button>
+                <button type="button" class="btn btn-success btn-block mb-4" id="reservationButton">Valider la réservation </button>
             </div>
         </div>
 
