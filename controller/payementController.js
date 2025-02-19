@@ -109,12 +109,14 @@ function getPayementMethod(){
         }
     })
     .then(response => {
+        console.log(response)
         if (!response.ok) {
             throw new Error('Erreur lors de la récupération des comptes bancaire');
         }
         return response.json();
     })
     .then(data => {
+        console.log(data)
         let i = 1;
         
           data.forEach(item => {

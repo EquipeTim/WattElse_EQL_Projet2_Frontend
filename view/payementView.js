@@ -1,7 +1,7 @@
 export function displayPayments( i,item,type) {
     const uniqueId = i;  // Utiliser l'index 'i' comme ID unique
    
-    /*
+    
     if(type==="card"){
         
         const cardHTML = `
@@ -11,10 +11,10 @@ export function displayPayments( i,item,type) {
                         <div>
        
         `;
-        const carsDiv = document.getElementById('cardInformation');
+        const carsDiv = document.getElementById('payementInformation');
         carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
     }
-        */
+        
     if(type==="account"){
         
         const cardHTML = `
@@ -25,7 +25,7 @@ export function displayPayments( i,item,type) {
 
        
         `;
-        const carsDiv = document.getElementById('accountInformation');
+        const carsDiv = document.getElementById('payementInformation');
         carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
     }
 
