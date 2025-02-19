@@ -4,13 +4,34 @@ const backUrl = `${getBackUrl()}/car`;
 
 
 const registeredButton = document.getElementById("addCarButton");
-registeredButton.addEventListener("click", handleFormSubmission);
+registeredButton.addEventListener("click", verifyCarFormAddInfo);
 
 const owner = JSON.parse(sessionStorage.getItem("owner"));
 
-
-function handleFormSubmission() {
+//Fonction qui permet de vérifier que tous les champs sont remplis correctement 
+function verifyCarFormAddInfo() {
+    const licensePlateNumber = document.getElementById('licenseCarValue').value;
+    const brandCar = document.getElementById('brandCarValue_1').value;
+    const modelCar = document.getElementById('modelCarValue_1').value;
+    const plugType = document.getElementById('plugTypeValue_1').value;
+    const maxElectricPower = document.getElementById('maxElectricPowerValue').value;
+    const currentDate = new Date();
+    const addDate = currentDate.toISOString().slice(0, 19).replace('T', ' ');
     
+    if (!licensePlateNumber || !brandCar || !modelCar || !plugType || !maxElectricPower || !currentDate || !addDate) {
+        document.getElementById("messageErrorEmpty").innerText = "Attention ! Veuillez remplir tous les champs du formulaire";
+    } else {
+        if(validateLicenseCar() == true)  {
+            handleFormSubmission();
+        }
+        else {
+            document.getElementById("messageLabelLicenseCar").innerText = " ";
+        }
+    }
+}
+
+//Fonction qui permet de récupérer les valeurs ajoutées dans le formulaire, et permet de les envoyer dans la BDD
+function handleFormSubmission() {
     const licensePlateNumber = document.getElementById('licenseCarValue').value;
     const brandCar = document.getElementById('brandCarValue_1').value;
     const modelCar = document.getElementById('modelCarValue_1').value;
@@ -34,7 +55,6 @@ function handleFormSubmission() {
             plug : plugType,
             maxElectricPower : maxElectricPower,
             userId: owner.userId
-            
         })
     };
     
@@ -53,8 +73,7 @@ function handleFormSubmission() {
         .catch(error => {
             console.error("Erreur de requête:", error);
         });
-    
-    
+  
 }
 
 

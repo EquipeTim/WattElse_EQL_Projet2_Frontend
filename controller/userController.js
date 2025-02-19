@@ -41,7 +41,7 @@ function fetchUser() {
     
 }
 
-//deleteUser → Permet de fermer le compte et de sélectionner une raison de fermeture de compte utilisateur 
+//deleteUser → Permet de fermer le compte et de sélectionner une raison de fermeture de compte utilisateur et de l'envoyer dans la BDD
 //Cette fonction vérifie également que c'est bien un utilisateur et non un admin qui ferme le compte
 function deleteUser() {
     const optionSelectedReasonsUserValue = document.getElementById('reasonCloseUserValue');

@@ -47,5 +47,20 @@ function validatePassword() {
         passwordInput.classList.add('is-invalid');
         return false;
     }
-    
+}
+
+function validateLicenseCar() {
+    const licenseCarInput = document.getElementById('licenseCarValue');
+    const licenseCarHelp = document.getElementById('licenseCarHelp');
+    const licenseCarPattern = /^[A-Z]{2}-\d{3}-[A-Z]{2}$/;
+
+    if (licenseCarPattern.test(licenseCarInput.value)) {
+        licenseCarHelp.style.visibility = 'hidden';
+        licenseCarInput.classList.remove('is-invalid');
+        return true;
+    } else {
+        licenseCarHelp.style.visibility = 'visible';
+        licenseCarInput.classList.add('is-invalid');
+        return false;
+    }
 }

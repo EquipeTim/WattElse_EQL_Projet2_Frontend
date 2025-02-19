@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connecté - Ajout véhicule</title>
     <script async src="../arch/arch.js"></script>
+    <script async  src="../controller/formController.js"></script>
     <script async type="module" src="../controller/CarController.js"></script>
     <script async type="module" src="../controller/registrationCarController.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
@@ -16,7 +17,7 @@
 <body>
     <div id="header"> </div>
 
-    <section class="h-100 row w-100">
+    <section class="d-flex justify-content-center">
         
         <article class="container m-0 p-0 bg-secondary col-lg-3">
             <div class="row align-self-center">
@@ -55,6 +56,10 @@
                                     <div class="col-md-6">
                                         <label for="licenseCarValue" class="form-label">Veuillez rentrer votre numéro d'immatriculation : </label>
                                         <input id="licenseCarValue" type="text" class="form-control form-control-lg" placeholder=" AA-001-AA"/>
+                                        <small id="licenseCarHelp" class="form-text text-danger fw-bold" style="visibility: hidden;">
+                                            Le numéro doit être au format AA-000-AA
+                                        </small>
+                                        <p id="messageLabelLicenseCar"></p>
                                     </div>
 
                                     <div class="col-md-6">
@@ -81,7 +86,11 @@
 
                                     <div class="col-md-6">
                                         <label for="maxElectricPowerValue" class="form-label">Veuillez rentrer la puissance maximum de charge de la voiture : </label>
-                                        <input id="maxElectricPowerValue" type="text" class="form-control form-control-lg" placeholder="0.0 kWh"/>
+                                        <input id="maxElectricPowerValue" type="text" class="form-control form-control-lg" placeholder="0 kWh"/>
+                                        <small id="maxElectricPowerHelp" class="form-text text-danger fw-bold" style="visibility: hidden;">
+                                            Veuillez renseigner un nombre entier
+                                        </small>
+                                        <p id="messageLabelMaxElectricPower"></p>
                                     </div>
 
                                 </div>
@@ -89,11 +98,10 @@
                         </div>
                     </div>
                 </div>
-
+<!--BOUTON AJOUT DE VOITURE-->
+                <div class="d-flex justify-content-center text-danger col-12"><p class="text-warning fw-bold" id="messageErrorEmpty"></p></div>
                 <div class="d-flex justify-content-center text-danger col-12"><p id="messageErrorCarAdd"></p></div>
-                <div class="d-flex justify-content-center mb-2 row">
-                    <button type="button" id="addCarButton" class="btn btn-lg btn-success col-lg-4 col-sm-12 mt-3">Ajouter voiture</button>
-                </div>
+                <div class="d-flex justify-content-center col-12"><button type="button" id="addCarButton" class="btn btn-lg btn-success col-lg-4 col-sm-12 mt-3">Ajouter voiture</button></div>
             </div>
 
         </article>
