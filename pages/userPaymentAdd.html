@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connecté - Ajout moyen de paiement</title>
     <script async src="../arch/arch.js"></script>
+    <script async type="module" src="../controller/payementController.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </head>
@@ -92,6 +93,10 @@
                                         <label class="mx-2 text-primary" for="cvvCardValue"><strong>Numéro CVV : </strong></label>
                                         <input type="text" id="cvvCardValue" class="form-control text-center"/>
                                     </div>
+
+                                    <div class="d-flex justify-content-center mb-2 row">
+                                        <button type="button" id="creditCardAddButton" class="btn btn-lg btn-success col-lg-4 col-sm-12 m-3">Ajouter carte bancaire</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -117,16 +122,18 @@
                                         <label class="mx-2 text-primary" for="swiftValue"><strong>BIC SWIFT :</strong></label>
                                         <input type="text" id="swiftValue" class="form-control text-center"/>
                                     </div>
+
+                                                    
+                                    <div class="d-flex justify-content-center mb-2 row">
+                                        <button type="button" id="accountBankAddButton" class="btn btn-lg btn-success col-lg-4 col-sm-12 m-3">Ajouter compte bancaire</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- BOUTONS DE VALIDATION : -->
-                <div class="d-flex justify-content-center mb-2 row">
-                    <button type="button" class="btn btn-lg btn-success col-lg-4 col-sm-12 m-3">Cliquez ici pour ajouter le moyen de paiement</button>
-                </div>
+              
 
             </div>
         </article>

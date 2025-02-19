@@ -5,13 +5,9 @@ const backUrl = `${getBackUrl()}/terminals`;
 
 if (window.location.pathname === '/pages/displayBorns.html') {
     searchAllBorn()
-
-
 }
-if (window.location.pathname === '/pages/displayTransactionBorn.html') {
-   
+else {
     searchBorn()
-
 }
 function searchAllBorn(){
     // Récupérer les paramètres de l'URL
@@ -86,10 +82,20 @@ function searchBorn(){
         return response.json();
     })
     .then(data => {
-        displayBornOfTransaction(data);
-   
-      
        
+        if(window.location.pathname === '/pages/displayTransactionBorn.html'){
+            displayBornOfTransaction(data);
+        }
+        else{
+            document.getElementById("idBornValue").textContent = `  ${data.idStation}` ;
+            document.getElementById("adressBornValue").innerHTML = ` &nbsp;${data.addressChargingStation}&nbsp;`;
+            document.getElementById("priceTypeValue").innerHTML = `&nbsp;${data.pricingType}:&nbsp;`;
+
+            document.getElementById("priceValue").textContent =  `  ${data.price}`;
+            
+        }
+        
+        
         
     })
 
