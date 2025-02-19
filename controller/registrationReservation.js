@@ -14,24 +14,24 @@ function handleFormSubmission() {
     const startDateValue = document.getElementById('startDateValue').value;
     const startHourValue = document.getElementById('startHourValue').value;
     const durationReservationValue = document.getElementById('durationReservationValue').value;
-    
-
-
-  
-
+   
+    console.log(owner)
+    console.log(durationReservationValue)
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" ,
             "Authorization": "Bearer " + owner.token, 
         },
         body: JSON.stringify({ 
-          "idStation":1,
-           "idUser":"2",
+         
+            
+           "idStation":1,
+            "idUser":owner.userId,
             "reservationDate":startDateValue,
-            "reservationStart": startHourValue,
+            "timeZone": "Europe/Paris",
+            "reservationTime":startHourValue,
             "reservationDuration":durationReservationValue,
-            "idUserBankAccount":1,
-            "timestamp": new Date().toISOString()
+            "idUserBankAccount":1
         })
     };
 
@@ -40,17 +40,18 @@ function handleFormSubmission() {
     fetch(`${backUrl}/reservation/`, requestOptions)
     .then(response => {
         console.log("Statut HTTP:", response.status); 
-        if (response.status === 201) {
+        if (response.status === 400) {
             
-            sessionStorage.setItem("registered", "true");
-            window.location.href = "home.html";
-        
-        } else {
+            sessionStorage.setItem("transaction", "true");
             document.getElementById("messageLabel").innerText = 
-            "La réservation n'est pas possible";
-            return Promise.reject(`Erreur HTTP : ${response.status}`);
+            "Veuillez renseigner des données valides pour chaque champs du formulaire ";
+            
             
         }
+        else{
+            window.location.href = "transactionManagement.html";
+        }
+       
     })
     
 }

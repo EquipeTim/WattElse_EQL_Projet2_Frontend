@@ -1,8 +1,8 @@
-import { displayBorns ,displayBornOfTransaction} from "../view/bornView.js";
+import { displayBorns ,displayBornOfTransaction,displayOpeningHour} from "../view/bornView.js";
 import { getBackUrl } from "./backUrl.js";
 
 const backUrl = `${getBackUrl()}/terminals`;
-
+const urlParams = new URLSearchParams(window.location.search);
 if (window.location.pathname === '/pages/displayBorns.html') {
     searchAllBorn()
 }
@@ -66,7 +66,7 @@ function searchBorn(){
 
     const idBorn = urlParams.get('idBorn');
     
-    fetch(`${backUrl}/info/${idBorn}`, {
+    fetch(`${backUrl}/info/1`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
@@ -85,6 +85,32 @@ function searchBorn(){
        
         if(window.location.pathname === '/pages/displayTransactionBorn.html'){
             displayBornOfTransaction(data);
+            fetch(`${backUrl}/info/hours`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  stationId: 1,
+                  timeZone: 'Europe/Paris'
+                })
+              })
+              .then(response => response.json())
+              .then(data => {
+                let i=1;
+                
+                data.forEach(item => {
+                
+                    displayOpeningHour(item,i)
+                    
+                    i++;
+                });
+               
+                
+              })
+              .catch(error => {
+                console.error('Error:', error);
+              });
         }
         else{
             document.getElementById("idBornValue").textContent = `  ${data.idStation}` ;

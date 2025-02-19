@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connecté - Gestion des bornes</title>
     <script async src="../arch/arch.js"></script>
+    <script async type="module" src="../controller/transactionController.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </head>
-
 
 <body>
     <div id="header"></div>
@@ -46,128 +46,44 @@
             </div>
 
             <!--TITRE DES ONGLETS -->
-            <div class="card border-secondary mt-2">
+            <div class=" mt-2">
                 <div class="card-header container d-flex justify-content-center align-items-center bg-secondary text-light">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active px-4 fs-5" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-pane" type="button" role="tab">TOUT</button>
+                            <button class="nav-link active px-4 fs-5" id="all" data-bs-toggle="tab" data-bs-target="#all-pane" type="button" role="tab">TOUT</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link px-4 fs-5" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-pane" type="button" role="tab">RÉSERVATIONS</button>
+                            <button class="nav-link px-4 fs-5" id="profile-tab" data-bs-toggle="tab" data-bs-target="#next-pane" type="button" role="tab">A VENIR</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link px-4 fs-5" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-pane" type="button" role="tab">EN COURS</button>
+                            <button class="nav-link px-4 fs-5" id="contact-tab" data-bs-toggle="tab" data-bs-target="#current-pane" type="button" role="tab">EN COURS</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link px-4 fs-5" id="completed-tab" data-bs-toggle="tab" data-bs-target="#finished-pane" type="button" role="tab">TERMINÉ</button>
                         </li>
                     </ul>
                 </div>
 
-                <div class="card-body col-lg-12">
+                <div class="card-body col-lg-12  mt-2">
                     <div class="tab-content" id="myTabContent">
                         <!-- ONGLET N°1 :-->
-                        <div class="tab-pane fade show active" id="home-pane" role="tabpanel">
-                            <div class="card container col-lg-12 border-secondary">
-                                <div class="row">
-                                    <div class="container d-flex col-md-4 justify-content-center">
-                                        <div class="row">
-                                            <h5 style="font-weight: bolder;">Adresse de la borne :</h5>
-                                            <label id="XXXXXXXXXX" style="font-weight: bold;">Test </label>
-                                        </div>
-                                    </div> 
-                                    <div class="container d-flex col-md-4">
-                                        <div class="row">
-                                            <h5 style="font-weight: bolder;">Récapitulatif de la borne :</h5>
-                                            <label id="XXXXXXXXXX">• Quantité de puissance consommée : </label>
-                                            <label id="XXXXXXXXXX">• Quantité de puissance consommée : </label>
-                                            <label id="XXXXXXXXXX">• Durée de la recharge : </label>
-                                            <label id="XXXXXXXXXX">• Date de la transaction : </label>
-                                            <label id="XXXXXXXXXX">• Montant de la transaction : </label>
-                                        </div>
-                                    </div>
-                                    <div class="container d-flex col-md-4 align-items-center justify-content-center">
-                                        <button type="button" class="btn btn-lg btn-danger disabled px-5">Échoué</button>
-                                    </div>
-                                </div> 
-                            </div>
-
-                            <div class="card container col-lg-12 mt-4 border-secondary">
-                                <div class="row">
-                                    <div class="container d-flex col-md-4 justify-content-center">
-                                        <div class="row">
-                                            <h5 class="fw-bold">Adresse de la borne :</h5>
-                                            <label id="XXXXXXXXXX" style="font-weight: bold;">Test </label>
-                                        </div>
-                                    </div> 
-                                    <div class="container d-flex col-md-4">
-                                        <div class="row">
-                                            <h5 style="font-weight: bolder;">Récapitulatif de la borne :</h5>
-                                            <label id="XXXXXXXXXX">• Quantité de puissance consommée : </label>
-                                            <label id="XXXXXXXXXX">• Quantité de puissance consommée : </label>
-                                            <label id="XXXXXXXXXX">• Durée de la recharge : </label>
-                                            <label id="XXXXXXXXXX">• Date de la transaction : </label>
-                                            <label id="XXXXXXXXXX">• Montant de la transaction : </label>
-                                        </div>
-                                    </div>
-                                    <div class="container d-flex col-md-4 align-items-center justify-content-center">
-                                        <button type="button" class="btn btn-lg btn-danger disabled px-5">Échoué</button>
-                                    </div>
-                                </div> 
-                            </div>
+                        <div class="tab-pane fade show active" id="all-pane" role="tabpanel">
+                            <div id="informationAllTransaction"></div>
                         </div>
 
                          <!-- ONGLET N°2 :-->
-                        <div class="tab-pane fade" id="profile-pane" role="tabpanel">
-                            <div class="card container col-lg-12 mt-4 border-secondary">
-                                <div class="row">
-                                    <div class="container d-flex col-md-4 justify-content-center">
-                                        <div class="row">
-                                            <h5 class="fw-bold">Adresse de la borne :</h5>
-                                            <label id="XXXXXXXXXX" style="font-weight: bold;">Test </label>
-                                        </div>
-                                    </div> 
-                                    <div class="container d-flex col-md-4">
-                                        <div class="row">
-                                            <h5 class="fw-bold">Récapitulatif de la borne :</h5>
-                                            <label id="XXXXXXXXXX">• Quantité de puissance consommée : </label>
-                                            <label id="XXXXXXXXXX">• Quantité de puissance consommée : </label>
-                                            <label id="XXXXXXXXXX">• Durée de la recharge : </label>
-                                            <label id="XXXXXXXXXX">• Date de la transaction : </label>
-                                            <label id="XXXXXXXXXX">• Montant de la transaction : </label>
-                                            <button type="button" class="btn btn-lg btn-danger px-8 mt-3 mb-3">Annuler la réservation</button>
-                                        </div>
-                                    </div>
-                                    <div class="container row col-md-4 text-center">
-                                        <button type="button" class="btn btn-success col-lg-8 mt-2">Commencer la recharge</button>
-                                        <button type="button" class="btn btn-warning col-lg-8 mt-2 mb-2">Un problème ?</button>
-                                    </div>
-                                </div> 
-                            </div>
+                        <div class="tab-pane fade" id="next-pane" role="tabpanel">
+                            <div id="informationWaitTransaction"></div>
                         </div>
 
                          <!-- ONGLET N°3 :-->
-                        <div class="tab-pane fade" id="contact-pane" role="tabpanel">
-                            <div class="card container col-lg-12 mt-4 border-secondary">
-                                <div class="row">
-                                    <div class="container d-flex col-lg-4 justify-content-center">
-                                        <div class="row">
-                                            <h5 style="font-weight: bolder;">Adresse de la borne :</h5>
-                                            <label id="XXXXXXXXXX" style="font-weight: bold;">Test </label>
-                                        </div>
-                                    </div> 
-                                    <div class="container d-flex col-lg-4">
-                                        <div class="row">
-                                            <h5 class="fw-bold">Récapitulatif de la borne :</h5>
-                                            <label id="XXXXXXXXXX">• Quantité de puissance consommée : </label>
-                                            <label id="XXXXXXXXXX">• Quantité de puissance consommée : </label>
-                                            <label id="XXXXXXXXXX">• Durée de la recharge : </label>
-                                            <label id="XXXXXXXXXX">• Date de la transaction : </label>
-                                            <label id="XXXXXXXXXX">• Montant de la transaction : </label>
-                                        </div>
-                                    </div>
-                                    <div class="container d-flex col-lg-4 align-items-center justify-content-center">
-                                        <button type="button" class="btn btn-primary px-5">Terminer la recharge</button>
-                                    </div>
-                                </div> 
-                            </div>
+                        <div class="tab-pane fade" id="current-pane" role="tabpanel">
+                            <div id="informationCurrentTransaction"></div>
+                        </div>
+
+                         <!-- ONGLET N°4 :-->
+                        <<div class="tab-pane fade" id="finished-pane" role="tabpanel">
+                            <div id="informationCompletedTransaction"></div>
                         </div>
                     </div>
                 </div>
@@ -176,3 +92,5 @@
     </section>
     <div id="footer"> </div>
 </body>
+
+</html>

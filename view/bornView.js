@@ -49,13 +49,9 @@ export function displayBornOfTransaction(item){
             <div clas="row">
                 <!-- A REMPLACER PAR LA MAP -->
                 <div class="card-body d-flex justify-content-center">
-                    <div class="card border-secondary mb-5" style="width: 50 rem;">
-                        <div class="card-header">EMPLACEMENT DE LA MAP </div>
-                        <div class="card-body">
-                          <h4 class="card-title">EMPLACEMENT DE LA MAP </h4>
-                          <p class="card-text">EMPLACEMENT DE LA MAP </p>
-                        </div>
-                      </div>
+                    <div class="d-flex justify-content-center">
+                        <div id="map" class="mt-4"></div>
+                    </div>
                 </div>
 
                 <hr>
@@ -100,10 +96,11 @@ export function displayBornOfTransaction(item){
 
 
                     <!--CARTE n°2-->
-                    <div class="col-md-4 mt-4">
-                        <div class="card border-secondary mb-3">
-                            <div class="card-header bg-primary text-white text-center">Horaire de la borne : </div>
-                            <div class="card-body">
+                    <div class="col-md-10 mt-4">
+                        <div class="card border-secondary mb-3 w-100">
+                            <div class="card-header bg-primary text-white text-center ">Horaire de la borne : </div>
+                            <div class="card-body d-flex justify-content-center align-items-center  flex-column" id="bornOpeningHour">
+
                              
                             </div>
                         </div>    
@@ -135,4 +132,23 @@ export function displayBornOfTransaction(item){
         window.location.href = url;
     });
 
+}
+
+export function displayOpeningHour(item,i){
+    const cardHTML = `
+   <div class="d-flex  align-items-baseline">
+    <h6 class="mb-0">${item.day} :</h6>
+    <p class="mb-0 ps-2">${item.startHour} - </p>
+    <p class="mb-0 ps-2">${item.endHour}</p>
+</div>
+
+
+
+
+    `;
+
+
+    const carsDiv = document.getElementById('bornOpeningHour');
+    carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
+    console.log("dd")
 }

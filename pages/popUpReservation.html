@@ -51,14 +51,14 @@
                         <input type="date" id="startDateValue" class="form-control form-control-lg"/>
                     </div>
                     <div class="col-lg-6">
-                        <label for="durationReservationValue" class="fw-bold">Durée de réservation :</label>
-                        <input id="durationReservationValue" class="form-control form-control-lg"/>
+                        <label for="durationReservationValue" class="fw-bold">Durée de réservation(minutes):</label>
+                        <input  value="30" id="durationReservationValue" class="form-control form-control-lg"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <label for="startHourValue" class="fw-bold">Heure de réservation :</label>
-                        <input  id="startHourValue" class="form-control form-control-lg"/>
+                        <input type="time" id="startHourValue" class="form-control form-control-lg"/>
                     </div>
                   
                 </div>
@@ -71,29 +71,20 @@
 
             <div class="container col-lg-6">
                 <div class="card border-dark" id="informationPayment1">
-                    <div class="card-header">Cartes bancaires</div>
+                    <div class="card-header">Moyens de payement</div>
                     <div class="card-body">
                         <div class="form-check">
-                            <div id="cardInformation"></div>
+                            <div id="payementInformation"></div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="container col-lg-6">
-                <div class="card border-dark" id="informationPayment2">
-                    <div class="card-header">Compte bancaire</div>
-                    <div class="card-body">
-                        <div class="form-check">
-                            <div id="accountInformation"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
            
             </div>
-            <div class="container d-flex align-items-center justify-content-center mt-3">
+            <div class="d-flex justify-content-center text-danger col-12 mt-3"><p id="messageLabel"></p></div>
+            <div class="container d-flex align-items-center justify-content-center ">
                 <button type="button" class="btn btn-success btn-block mb-4" id="reservationButton">Valider la réservation </button>
             </div>
         </div>

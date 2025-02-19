@@ -169,10 +169,7 @@ function fetchPlugsForModel(selectedBrand, selectedModel, uniqueId) {
                         const selectedPlug = document.getElementById(`plugTypeValue_${i}`);
                         selectedPlug.innerHTML =""
                         fetchPlugsForModel(selectedBrand, selectedModel, i)
-                        
-                    
-
-                        
+                
                     
                     }
             
