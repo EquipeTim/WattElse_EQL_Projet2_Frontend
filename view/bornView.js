@@ -1,6 +1,19 @@
+
+export function displayNoneBorn(){
+    const cardHTML = `
+        <div class="d-flex justify-content-center flex-column mt-4 w-75">
+        <h3 class="mt-5 mb-5">Aucune borne n'a pu être trouvée. Veuillez <a href="home.html">revenir à la page d'accueil</a> et refaire la recherche en utilisant d'autres informations.</h3>
+
+        
+        </div>  
+    `;
+
+
+    const carsDiv = document.getElementById('informationBorns');
+    carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
+}
 export function displayBorns(item,i){
-   
-    
+
     const cardHTML = `
     <div class="card row mt-3 mb-4 w-75">
         <div class="card-header justify-content-center bg-secondary text-white">
@@ -40,8 +53,8 @@ export function displayBorns(item,i){
 
 
 export function displayBornOfTransaction(item){
-   
-    
+      
+ 
     const cardHTML = `
     <section class="container d-flex mt-2  mb-2">
 
@@ -136,11 +149,11 @@ export function displayBornOfTransaction(item){
 
 export function displayOpeningHour(item,i){
     const cardHTML = `
-   <div class="d-flex  align-items-baseline">
-    <h6 class="mb-0">${item.day} :</h6>
-    <p class="mb-0 ps-2">${item.startHour} - </p>
-    <p class="mb-0 ps-2">${item.endHour}</p>
-</div>
+        <div class="d-flex  align-items-baseline">
+            <h6 class="mb-0">${item.day} :</h6>
+            <p class="mb-0 ps-2">${item.startHour} - </p>
+            <p class="mb-0 ps-2">${item.endHour}</p>
+        </div>
 
 
 

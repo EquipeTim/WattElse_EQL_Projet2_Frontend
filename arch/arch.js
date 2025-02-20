@@ -149,16 +149,20 @@ function redirectWithParams() {
 
   const address = document.getElementById("placeValue").value;
   const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1`;
-  
-  fetch(url)
+  if (!dateValue || !address) {
+    document.getElementById("messageLabel").innerText = "Veuillez remplir correctement tous les champs du formulaire ";
+   
+  }
+  else{
+    fetch(url)
       .then(response => response.json())
       .then(data => {
           if (data.length > 0) {
-              const lat = data[0].lat;
+            const lat = data[0].lat;
               const lon = data[0].lon;
-            
-              location.href = 'displayBorns.html?radius=' + radiusValue + '&date=' + dateValue + '&plugType=' + plugTypeValue 
-              + '&longitude=' + lon + '&latitude=' + lat;
+             location.href = 'displayBorns.html?radius=' + radiusValue + '&date=' + dateValue + '&plugType=' + plugTypeValue 
+               + '&longitude=' + lon + '&latitude=' + lat;
+             
               
           } else {
               console.log("Adresse introuvable");
@@ -167,6 +171,12 @@ function redirectWithParams() {
       .catch(error => {
           console.log("Erreur : ", error);
       });
+
+  }
+  
+     
+      
+      
 
      
       

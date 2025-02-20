@@ -1,0 +1,15 @@
+.flatpickr-day {
+    cursor: pointer;
+}
+
+.flatpickr-day.red {
+    color: red !important;
+}
+
+.flatpickr-input {
+    padding-right: 30px; /* Espace pour la flèche */
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/svgs/solid/caret-down.svg'); 
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 20px;
+}
