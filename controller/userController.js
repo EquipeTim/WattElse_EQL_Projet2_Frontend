@@ -83,13 +83,13 @@ function fetchReasonsCloseUser() {
         return response.json();
     })
     .then(data => {
-        console.log(data)
-            data.forEach(item => {
-                const selectedReasonValue = document.getElementById(`reasonCloseUserValue`);
-                const option = document.createElement('option');
-                option.value = item.choiceId;
-                option.textContent = item.choice;
-                selectedReasonValue.appendChild(option);
+        console.log(data);
+        data.forEach(item => {
+            const selectedReasonValue = document.getElementById(`reasonCloseUserValue`);
+            const option = document.createElement('option');
+            option.value = item.choiceId;
+            option.textContent = item.choice;
+            selectedReasonValue.appendChild(option);
     });
 })
 };
