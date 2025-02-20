@@ -17,18 +17,18 @@
     <div id="header"></div>
     <div id="alert"></div>
 
-    <section class="w-100">
+    <section>
         <div class="d-flex justify-content-center my-5 w-100">
             <div class="d-flex justify-content-between align-items-center w-75 bg-primary p-4 rounded-5">
 
-                <div class="d-flex flex-column mb-3 w-25">
-                    <label for="placeValue" class="text-white">Adresse</label>
+                <div class="d-flex flex-column mb-3 w-25 mx-2">
+                    <label for="placeValue" class="text-white fw-bold">Adresse</label>
                     <input id="placeValue" class="form-control"> 
                     <div id="suggestions" ></div>
                 </div>
 
-                <div class="d-flex flex-column mb-3 w-25">
-                    <label for="selectRayon" class="text-white">Rayon</label>
+                <div class="d-flex flex-column mb-3 w-25 mx-2">
+                    <label for="selectRayon" class="text-white fw-bold">Rayon</label>
                     <select class="form-control" id="radiusValue">
                         <option value="5">5 km</option>
                         <option value="10">10 km</option>
@@ -36,20 +36,20 @@
                     </select>
                 </div>
 
-                <div class="d-flex flex-column mb-3 w-25">
-                    <label for="selectDate" class="text-white">Date</label>
+                <div class="d-flex flex-column mb-3 w-25 mx-2">
+                    <label for="selectDate" class="text-white fw-bold">Date</label>
                     <input type="date" class="form-control" id="dateValue">
                 </div>
 
-                <div class="d-flex flex-column mb-3 w-25">
-                    <label for="selectType" class="text-white">Prise</label>
+                <div class="d-flex flex-column mb-3 w-25 mx-2">
+                    <label for="selectType" class="text-white fw-bold">Prise</label>
                     <select class="form-control" id="plugTypeValue">
                     </select>
                 </div>
 
                 <div class="d-flex align-items-center">
-                    <button class="btn btn-light p-3" type="button" onclick="redirectWithParams();">
-                        <i class="fa fa-search fa-3x"></i>
+                    <button class="btn btn-light bg-transparent border-0" type="button" onclick="redirectWithParams();">
+                        <i class="fa fa-search fa-3x text-white"></i>
                     </button>
                 </div>
 
@@ -59,24 +59,42 @@
 
     <section>
         <div class="container my-5">
-            <h1 class="text-center mb-5">Watt else une entreprise survolté </h1>
+            <h2 class="text-center text-secondary mb-5 fw-bold">Quelle est l'objectif de "Watt'Else?" et de la plateforme ?</h2>
             <div class="row">
                 <div class="col-md-4 mb-5">
                     <div class="bloc text-center">
-                        <i class="fa fa-cogs fa-5x mb-4"></i>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                        <i class="fa fa-cogs text-success fa-5x mb-4"></i>
+                        <h4 class="fw-bold">
+                            La mission :
+                        </h4>
+                        <p>
+                        "Watt Else? connecte les propriétaires de bornes de recharge avec les conducteurs de voitures électriques. 
+                        Cette plateforme simplifie le partage de bornes privées avec une gestion transparente et des tarifs maîtrisés.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="bloc text-center">
-                        <i class="fa fa-rocket fa-5x mb-4"></i>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                        <i class="fa fa-users fa-5x mb-4 text-success"></i>
+                        <h4 class="fw-bold">
+                            Pour qui ?
+                        </h4>
+                        <p>
+                            Cette plateforme est destinée pour les conducteurs de voitures électriques et les fournisseurs de bornes de recharges, notamment ceux situés en zone rurale.
+                            Cela apporte des solutions aux territoires les plus défavorisées en termes d'infrastructures de recharge et permet de rendre la mobilité électrique accessible partout.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="bloc text-center">
-                        <i class="fa fa-heart fa-5x mb-4"></i>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                        <i class="fa fa-sitemap fa-5x mb-4 text-success"></i>
+                        <h4 class="fw-bold">
+                            Naviguez facilement au sein de la plateforme !
+                        </h4>
+                        <p>
+                            Vous souhaitez recharger votre voiture à proximité de chez vous ? Optimisez vos recharges au sein de et trouvez les bornes privées disponibles sur tous vos trajets du quotidien. 
+                            Vérifiez les tarifs les plus avantageux en tant que conducteur, proposez vos tarifs et conditions en tant que fournisseurs et contribuez à une communauté de recharge plus accessible.
+                        </p>
                     </div>
                 </div>
             </div>
