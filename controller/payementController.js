@@ -87,9 +87,6 @@ function accountBankHandleFormSubmission() {
         if (response.status === 200) {
              sessionStorage.setItem("addedCreditCard","true")
              window.location.href = "home.html"
-         
-            
-        
         } else {
             document.getElementById("messageLabel").innerText = 
             "L'adresse email existe déjà";
@@ -99,8 +96,9 @@ function accountBankHandleFormSubmission() {
     })
     
 }
+
+//Fonction de récupération des cartes bancaires : 
 function getPayementMethod(){
-    
     fetch(`${backUrl}/card/all`, {
         method: 'GET',
         headers: {
@@ -142,8 +140,7 @@ function getPayementMethod(){
     })
     .then(data => {
         let i = 1;
-        
-          data.forEach(item => {
+        data.forEach(item => {
             displayPayments(i,item,"account")
             i++;
         });
