@@ -8,15 +8,15 @@ const reservationButton = document.getElementById("reservationButton");
 reservationButton.addEventListener("click",handleFormSubmission);
 
 const owner = JSON.parse(sessionStorage.getItem("owner"));
-
+const urlParams = new URLSearchParams(window.location.search);
 function handleFormSubmission() {
     
     const startDateValue = document.getElementById('startDateValue').value;
-    const startHourValue = document.getElementById('startHourValue').value;
+    const startHourValue = document.getElementById('availableHours').value;
     const durationReservationValue = document.getElementById('durationReservationValue').value;
    
-    console.log(owner)
-    console.log(durationReservationValue)
+    const idBornValue = urlParams.get('idBorn');
+
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" ,
@@ -25,13 +25,13 @@ function handleFormSubmission() {
         body: JSON.stringify({ 
          
             
-           "idStation":1,
+            "idStation": idBornValue ,
             "idUser":owner.userId,
             "reservationDate":startDateValue,
             "timeZone": "Europe/Paris",
             "reservationTime":startHourValue,
             "reservationDuration":durationReservationValue,
-            "idUserBankAccount":1
+            "idUserBankAccount":idBornValue
         })
     };
 
@@ -39,7 +39,7 @@ function handleFormSubmission() {
 
     fetch(`${backUrl}/reservation/`, requestOptions)
     .then(response => {
-        console.log("Statut HTTP:", response.status); 
+        
         if (response.status === 400) {
             
             sessionStorage.setItem("transaction", "true");
@@ -55,6 +55,7 @@ function handleFormSubmission() {
     })
     
 }
+
 
 
 

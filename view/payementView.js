@@ -7,7 +7,7 @@ export function displayPayments( i,item,type) {
         const cardHTML = `
         <input class="form-check-input mt-2" type="radio" name="optionsRadios" id="radioButtonPayment1" value="option1" checked="">
                     <div class="row">
-                        <label for="radioButtonPayment1" class="fw-bold mt-1">Carte bancaire : ${item.iban} </label>
+                        <label for="radioButtonPayment1" class="fw-bold mt-1">Carte bancaire : ${item.numberCard} </label>
                         <div>
        
         `;

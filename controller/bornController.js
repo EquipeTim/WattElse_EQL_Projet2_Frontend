@@ -1,4 +1,4 @@
-import { displayBorns ,displayBornOfTransaction,displayOpeningHour} from "../view/bornView.js";
+import { displayBorns ,displayBornOfTransaction,displayOpeningHour,displayNoneBorn} from "../view/bornView.js";
 import { getBackUrl } from "./backUrl.js";
 
 const backUrl = `${getBackUrl()}/terminals`;
@@ -11,7 +11,7 @@ else {
 }
 function searchAllBorn(){
     // Récupérer les paramètres de l'URL
-    const urlParams = new URLSearchParams(window.location.search);
+
 
     // Obtenir les valeurs des paramètres
     const radiusValue = urlParams.get('radius');
@@ -21,7 +21,7 @@ function searchAllBorn(){
     const latitudeValue = urlParams.get('latitude');
 
    
-
+    
 
     fetch(`${backUrl}/find`, {
             method: 'POST',
@@ -33,7 +33,9 @@ function searchAllBorn(){
                 "searchRadius":radiusValue,
                 "startingLat":latitudeValue,
                 "startingLong": longitudeValue ,
-                "plugType" : plugTypeValue
+                "plugType" : plugTypeValue,
+                "timeZone":"Europe/Paris",
+                "date":dateValue    
             })
         })
         .then(response => {
@@ -52,6 +54,9 @@ function searchAllBorn(){
                 displayBorns(item, i);
                 i++;
             });
+            if(data.length ===0){
+                displayNoneBorn()
+            }
            
             
         })
@@ -66,7 +71,7 @@ function searchBorn(){
 
     const idBorn = urlParams.get('idBorn');
     
-    fetch(`${backUrl}/info/1`, {
+    fetch(`${backUrl}/info/${idBorn}`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",

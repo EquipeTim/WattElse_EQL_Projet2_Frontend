@@ -5,7 +5,7 @@ const backUrl = `${getBackUrl()}/payment_methods`;
 
 
 const owner = JSON.parse(sessionStorage.getItem("owner"));
-if (window.location.pathname === '/pages/popupReservation.html') {
+if (window.location.pathname === '/pages/popupReservation.html' ||window.location.pathname === '/pages/choosePaymentMethod.html' ) {
     getPayementMethod();
     
 
@@ -33,6 +33,7 @@ function creditCardHandleFormSubmission() {
             numberCard : numberBankCardValue,
             expirationDate: dateBankCardValue,
             cvvNumber: cvvCardValue,
+            userId : owner.userId
 
         })
     };
@@ -109,14 +110,14 @@ function getPayementMethod(){
         }
     })
     .then(response => {
-        console.log(response)
+        
         if (!response.ok) {
             throw new Error('Erreur lors de la récupération des comptes bancaire');
         }
         return response.json();
     })
     .then(data => {
-        console.log(data)
+    
         let i = 1;
         
           data.forEach(item => {
