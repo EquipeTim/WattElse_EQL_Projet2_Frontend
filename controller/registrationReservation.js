@@ -44,7 +44,7 @@ function handleFormSubmission() {
             
             sessionStorage.setItem("transaction", "true");
             document.getElementById("messageLabel").innerText = 
-            "Veuillez renseigner des données valides pour chaque champs du formulaire ";
+            "Les données ne sont pas respectées pour la borne";
             
             
         }

@@ -9,7 +9,7 @@
     <script async src="../arch/arch.js"></script>
   
     <script async type="module" src="../controller/payementController.js"></script>
-
+    <script async type="module" src="../controller/transactionController.js"></script>
 
    
     
@@ -19,9 +19,19 @@
 </head>
 <body>
     <div id="header"></div>
-    <div id="payementInformation"></div>
+    <div class="d-flex justify-content-center mt-4">
+        <h1 class="display-4 text-center text-primary">Confirmez votre moyen de payement</h1>
+    </div>
+    
+    <div id="payementInformation" class="mt-4 mb-5   d-flex align-items-center flex-column"></div>
 
+    <div class="d-flex justify-content-center mt-4">
+        <button id="payementButton" type="button" class="btn btn-success btn-lg px-5 rounded-pill shadow-sm stopTransactionBtn">
+            <i class="bi bi-arrow-repeat"></i> Valider le paiement
+        </button> 
+    </div>
+    
 
-    <div id="footer"></div>
+    <div id="footer" class=" mt-4"></div>
 </body>
 </html>

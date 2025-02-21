@@ -160,6 +160,7 @@ function redirectWithParams() {
           if (data.length > 0) {
             const lat = data[0].lat;
               const lon = data[0].lon;
+              
              location.href = 'displayBorns.html?radius=' + radiusValue + '&date=' + dateValue + '&plugType=' + plugTypeValue 
                + '&longitude=' + lon + '&latitude=' + lat;
              

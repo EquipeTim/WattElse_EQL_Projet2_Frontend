@@ -4,10 +4,15 @@ const backUrl = `${getBackUrl()}/transaction`;
 const backUrlPayment = `${getBackUrl()}/payment`;
 
 const owner = JSON.parse(sessionStorage.getItem("owner"));
+if (window.location.pathname != '/pages/choosePaymentMethod.html') {
+    fetchAllTransactions("all")
+}
 
-fetchAllTransactions("all")
 
 document.addEventListener('click', function() {
+    console.log("a")
+    const payementButton = document.getElementById("payementButton");
+    payementButton.addEventListener("click", payTransaction);
     if (sessionStorage.getItem('start')) {
       
         startTransaction(sessionStorage.getItem('start'))
@@ -20,16 +25,23 @@ document.addEventListener('click', function() {
     }
     if (sessionStorage.getItem('payement')) {
         
-       
         payTransaction(sessionStorage.getItem('payement'));
         sessionStorage.removeItem('payement');
     }
 });
 
 
+
+const urlParams = new URLSearchParams(window.location.search);
+
 function payTransaction(idTransaction)
 {   
-   
+    console.log(idTransaction)
+    if(idTransaction === null){
+        console.log("t")
+        const idTransaction = urlParams.get('idBorn');
+    }
+  
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" ,
@@ -43,8 +55,10 @@ function payTransaction(idTransaction)
 
     fetch(`${backUrl}/pay`, requestOptions)
     .then(response => {
+        console.log(response )
         if(response.status ===200){
-            console.log("dzadaz")
+            console.log("Payement validé")
+            //location.href = 'home.html';
             
         }
         return response.json();  
@@ -53,7 +67,7 @@ function payTransaction(idTransaction)
    
     .then(data => {
         console.log("Payment successful:", data);
-        //window.location.href = "transactionManagement.html";  
+       
     })
   
 
@@ -79,6 +93,7 @@ function startTransaction(idTransaction)
         if(response.status ===200){
            
             window.location.href = "transactionManagement.html";
+            
         }
             
     })
@@ -103,8 +118,10 @@ const requestOptions = {
 
     fetch(`${backUrl}/stop`, requestOptions)
     .then(response => {
+       
         if(response.status ===200){
-            window.location.href = "transactionManagement.html";
+            window.location.href = 'choosePaymentMethod.html?idBorn=' + 1;
+            
         }
         
 })
