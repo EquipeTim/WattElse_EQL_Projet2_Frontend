@@ -3,6 +3,17 @@ html,body{
     height: 100%;
 }
 
+section { 
+    min-height: calc(100vh - 14.5rem); 
+}
+
+.bg-green {
+    background-color: #3e4940;
+}
+
+.bg-dark-green {
+    background-color: #e2e0d9;
+}
 
 /* Une fois connecté → Mise en place du menu permettant de naviguer sur les différentes pages : 
 -.btn-menu-side : Boutons déjà présent
