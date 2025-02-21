@@ -31,7 +31,7 @@ function deleteCard() {
     })
     .then(data => {
         console.log("Carte fermée avec succès :", data);
-        sessionStorage.removeItem("card");
+        sessionStorage.removeItem("bankCardId");
         sessionStorage.setItem("closedCard", "true");
         setTimeout(() => {
             window.location.href = "home.html";
