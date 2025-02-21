@@ -23,7 +23,7 @@ function fetchBorn(){
      
         data.forEach(item => {
             const option = document.createElement('option');
-            option.value = item.choice;  
+            option.value = item.choiceId;  
             option.textContent = item.choice; 
             selectElement.appendChild(option); 
         });

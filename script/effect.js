@@ -1,6 +1,8 @@
 if (!window.hasLoaded) {
     document.addEventListener('DOMContentLoaded', function () {
         window.hasLoaded = true;
+        const urlParams = new URLSearchParams(window.location.search);
+        const idBornValue = urlParams.get('idBorn');
 
         const timeInput = document.getElementById('startHourValue');
 
@@ -10,10 +12,9 @@ if (!window.hasLoaded) {
                 disable: [],
                 onDayCreate: function(dObj, dStr, fp, dayElem) {
                     const currentDate = new Date();
-                    currentDate.setDate(currentDate.getDate() + -1); // Date d'hier
+                    currentDate.setDate(currentDate.getDate() + -1);
                     const dayDate = dayElem.dateObj;
 
-                    // Si la date est passée, la marquer en rouge
                     if (dayDate < currentDate) {
                         dayElem.style.color = "red";
                         if (timeInput) {
@@ -21,8 +22,8 @@ if (!window.hasLoaded) {
                         }
                     }
 
-                    // Vérification des jours d'indisponibilité via la requête fetch
-                    fetch('http://127.0.0.1:8080/api/rest/terminals/info/day/occupied/3', {
+                   
+                    fetch(`http://127.0.0.1:8080/api/rest/terminals/info/day/occupied/${idBornValue}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -36,13 +37,11 @@ if (!window.hasLoaded) {
                             return { startDate, endDate };
                         });
 
-                        // Comparer chaque jour du calendrier avec les dates d'indisponibilité
+                        
                         unavailableDates.forEach(({ startDate, endDate }) => {
                             if (dayDate >= startDate && dayDate <= endDate) {
                                 dayElem.style.color = "red";
-                                if (timeInput) {
-                                    timeInput.placeholder = "Pas d'horaires disponibles";
-                                }
+                              
                             }
                         });
                     })
@@ -51,40 +50,58 @@ if (!window.hasLoaded) {
                     });
                 },
 
-                onChange: function(selectedDates, dateStr, instance) {
-                    // Mettre à jour les horaires disponibles lors du changement de date
-                    updateAvailableHours(dateStr);
-                }
-            });
-        }
+                onChange: function(selectedDate, dateStr, instance) {
+                    const days = instance.calendarContainer.querySelectorAll('.flatpickr-day');
+                    const selectedDayElem = Array.from(days).find(day => day.classList.contains('selected'));
+                                        
+                    var inlineColor = selectedDayElem.style.color;
 
-        function updateAvailableHours(date) {
-            const hoursSelect = document.getElementById('availableHours');
-
-            if (hoursSelect) hoursSelect.innerHTML = '';
-
-            searchHourForDate(date, function(hours) {
-                if (hours.length === 0) {
-                    if (timeInput) {
-                        timeInput.placeholder = "Pas d'horaires disponibles";
+                    if (inlineColor) {
+                        const hour = "red";
+                        
+                        if (timeInput) {
+                            timeInput.placeholder = "Pas d'horaires disponibles";
+                        }
+                      updateAvailableHours(dateStr,hour);
+                    } else {
+                        const hour = "black";
+                        
+                        updateAvailableHours(dateStr,hour);
                     }
-                }
 
-                if (hoursSelect) {
-                    hours.forEach(function(hour) {
-                        const option = document.createElement('option');
-                        option.value = hour;
-                        option.textContent = hour;
-                        hoursSelect.appendChild(option);
-                    });
+                   
+                  
+                    
                 }
             });
         }
 
-        function searchHourForDate(date, callback) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const idBornValue = urlParams.get('idBorn');
+        function updateAvailableHours(date,hour) {
+            const hoursSelect = document.getElementById('availableHours');
+        
+            if (hoursSelect) hoursSelect.innerHTML = '';
+           
+                searchHourForDate(date, hour,function(hours) {
+                    
+                    if (hours.length === 0 ) {
+                        if (timeInput) {
+                            timeInput.placeholder = "Pas d'horaires disponibles";
+                        }
+                    }
 
+                    if (hoursSelect) {
+                        hours.forEach(function(hour) {
+                            const option = document.createElement('option');
+                            option.value = hour;
+                            option.textContent = hour;
+                            hoursSelect.appendChild(option);
+                        });
+                    }
+                });
+        }
+
+        function searchHourForDate(date,hour, callback) {
+           
             fetch('http://127.0.0.1:8080/api/rest/terminals/info/day/hours', {
                 method: 'POST',
                 headers: {
@@ -114,14 +131,14 @@ if (!window.hasLoaded) {
                     }
 
                     let startMinutes = timeToMinutes(startHour);
-                    let endMinutes = timeToMinutes(endHour) - 45; 
+                    let endMinutes = timeToMinutes(endHour) ; 
 
                     for (let currentMinutes = startMinutes; currentMinutes <= endMinutes; currentMinutes += 10) {
                         hours.push(minutesToTime(currentMinutes));
                     }
                 }
 
-                if (hours.length === 0) {
+                if (hours.length === 0 || hour ==="red") {
                     hours = ["Aucun horaire disponible"];
                 }
                 callback(hours);
