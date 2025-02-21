@@ -21,13 +21,13 @@
         <div class="d-flex justify-content-center my-5 w-100">
             <div class="d-flex justify-content-between align-items-center w-75 bg-primary p-4 rounded-5">
 
-                <div class="d-flex flex-column mb-3 w-25">
+                <div class="d-flex flex-column mb-3 w-25 mx-2">
                     <label for="placeValue" class="text-white">Adresse</label>
                     <input id="placeValue" class="form-control"> 
                     <div id="suggestions" ></div>
                 </div>
 
-                <div class="d-flex flex-column mb-3 w-25">
+                <div class="d-flex flex-column mb-3 w-25 mx-2">
                     <label for="selectRayon" class="text-white">Rayon</label>
                     <select class="form-control" id="radiusValue">
                         <option value="5">5 km</option>
@@ -36,7 +36,7 @@
                     </select>
                 </div>
 
-                <div class="d-flex flex-column mb-3 w-25">
+                <div class="d-flex flex-column mb-3 w-25 mx-2">
                     <label for="selectDate" class="text-white">Date</label>
                     <input type="date" class="form-control" id="dateValue">
                 </div>
@@ -46,14 +46,14 @@
                     document.getElementById("dateValue").value = new Date().toISOString().split('T')[0];
                 </script>
 
-                <div class="d-flex flex-column mb-3 w-25">
+                <div class="d-flex flex-column mb-3 w-25 mx-2">
                     <label for="selectType" class="text-white">Prise</label>
                     <select class="form-control" id="plugTypeValue">
                     </select>
                 </div>
 
-                <div class="d-flex align-items-center">
-                    <button class="btn btn-light p-3" type="button" onclick="redirectWithParams();">
+                <div class="d-flex align-items-center mx-2">
+                    <button class="btn text-white btn-link p-3" type="button" onclick="redirectWithParams();">
                         <i class="fa fa-search fa-3x"></i>
                     </button>
                 </div>
@@ -70,7 +70,7 @@
             <div class="row">
                 <div class="col-md-4 mb-5">
                     <div class="bloc text-center">
-                        <i class="fa fa-cogs text-success fa-5x mb-4"></i>
+                        <i class="fa fa-cogs text-primary fa-5x mb-4"></i>
                         <h4 class="fw-bold">
                             La mission :
                         </h4>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="bloc text-center">
-                        <i class="fa fa-users fa-5x mb-4 text-success"></i>
+                        <i class="fa fa-users fa-5x mb-4 text-primary"></i>
                         <h4 class="fw-bold">
                             Pour qui ?
                         </h4>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="bloc text-center">
-                        <i class="fa fa-sitemap fa-5x mb-4 text-success"></i>
+                        <i class="fa fa-sitemap fa-5x mb-4 text-primary"></i>
                         <h4 class="fw-bold">
                             Naviguez facilement au sein de la plateforme !
                         </h4>
