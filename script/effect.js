@@ -6,6 +6,8 @@ if (!window.hasLoaded) {
 
         const timeInput = document.getElementById('startHourValue');
 
+        
+
         if (!document.querySelector("#startDateValue")._flatpickr) { 
             flatpickr("#startDateValue", {
                 dateFormat: "Y-m-d",
@@ -102,7 +104,7 @@ if (!window.hasLoaded) {
 
         function searchHourForDate(date,hour, callback) {
            
-            fetch('http://127.0.0.1:8080/api/rest/terminals/info/day/hours', {
+            fetch('http://127.0.0.1:8080/api/rest/terminals/info/day/available', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -114,6 +116,7 @@ if (!window.hasLoaded) {
             })
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 let hours = [];
                 for (let i = 0; i < data.length; i++) {
                     let startHour = data[i].startHour;
@@ -131,7 +134,7 @@ if (!window.hasLoaded) {
                     }
 
                     let startMinutes = timeToMinutes(startHour);
-                    let endMinutes = timeToMinutes(endHour) ; 
+                    let endMinutes = timeToMinutes(endHour)  ; 
 
                     for (let currentMinutes = startMinutes; currentMinutes <= endMinutes; currentMinutes += 10) {
                         hours.push(minutesToTime(currentMinutes));

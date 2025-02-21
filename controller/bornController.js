@@ -42,17 +42,7 @@ function searchAllBorn(){
         })
         
         .then(response => {
-            let a =JSON.stringify({
-                "searchRadius":radiusValue,
-                "startingLat":latitudeValue,
-                "startingLong": longitudeValue ,
-                "plugId" : plugTypeValue,
-                "timeZone":"Europe/Paris",
-                "date":dateValue ,
-                "time": "14:00"
-            })
-            console.log(a)
-            
+           
             if (!response.ok) {
                 throw new Error('Erreur lors de la récupération des bornes');
             }
