@@ -67,7 +67,7 @@ function handleFormSubmission() {
             } 
             else {
                 sessionStorage.setItem("added", "true");
-                window.location.href = "chargingStationInfosManagement.html";
+                window.location.href = "carInfosManagement.html";
             }
         })
         .catch(error => {

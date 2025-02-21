@@ -131,7 +131,7 @@ if (!window.hasLoaded) {
                     }
 
                     let startMinutes = timeToMinutes(startHour);
-                    let endMinutes = timeToMinutes(endHour) - 45; 
+                    let endMinutes = timeToMinutes(endHour) ; 
 
                     for (let currentMinutes = startMinutes; currentMinutes <= endMinutes; currentMinutes += 10) {
                         hours.push(minutesToTime(currentMinutes));

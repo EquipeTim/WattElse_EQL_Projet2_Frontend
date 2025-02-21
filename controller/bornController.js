@@ -10,7 +10,7 @@ else {
     searchBorn()
 }
 function searchAllBorn(){
-    // Récupérer les paramètres de l'URL
+    
 
 
     // Obtenir les valeurs des paramètres
@@ -33,20 +33,33 @@ function searchAllBorn(){
                 "searchRadius":radiusValue,
                 "startingLat":latitudeValue,
                 "startingLong": longitudeValue ,
-                "plugType" : plugTypeValue,
+                "plugId" : plugTypeValue,
                 "timeZone":"Europe/Paris",
-                "date":dateValue    
+                "date":dateValue ,
+                "time": "14:00"
             })
+            
         })
+        
         .then(response => {
+            let a =JSON.stringify({
+                "searchRadius":radiusValue,
+                "startingLat":latitudeValue,
+                "startingLong": longitudeValue ,
+                "plugId" : plugTypeValue,
+                "timeZone":"Europe/Paris",
+                "date":dateValue ,
+                "time": "14:00"
+            })
+            console.log(a)
             
             if (!response.ok) {
-                throw new Error('Erreur lors de la récupération des marques');
+                throw new Error('Erreur lors de la récupération des bornes');
             }
             return response.json();
         })
         .then(data => {
-          
+            console.log(data)
             let i = 1;
             data.forEach(item => {
                 

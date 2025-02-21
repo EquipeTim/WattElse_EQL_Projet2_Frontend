@@ -17,18 +17,18 @@
     <div id="header"></div>
     <div id="alert"></div>
 
-    <section>
+    <section class="w-100">
         <div class="d-flex justify-content-center my-5 w-100">
             <div class="d-flex justify-content-between align-items-center w-75 bg-primary p-4 rounded-5">
 
-                <div class="d-flex flex-column mb-3 w-25 mx-2">
-                    <label for="placeValue" class="text-white fw-bold">Adresse</label>
+                <div class="d-flex flex-column mb-3 w-25">
+                    <label for="placeValue" class="text-white">Adresse</label>
                     <input id="placeValue" class="form-control"> 
                     <div id="suggestions" ></div>
                 </div>
 
-                <div class="d-flex flex-column mb-3 w-25 mx-2">
-                    <label for="selectRayon" class="text-white fw-bold">Rayon</label>
+                <div class="d-flex flex-column mb-3 w-25">
+                    <label for="selectRayon" class="text-white">Rayon</label>
                     <select class="form-control" id="radiusValue">
                         <option value="5">5 km</option>
                         <option value="10">10 km</option>
@@ -36,20 +36,25 @@
                     </select>
                 </div>
 
-                <div class="d-flex flex-column mb-3 w-25 mx-2">
-                    <label for="selectDate" class="text-white fw-bold">Date</label>
+                <div class="d-flex flex-column mb-3 w-25">
+                    <label for="selectDate" class="text-white">Date</label>
                     <input type="date" class="form-control" id="dateValue">
                 </div>
+                
+                <script>
+           
+                    document.getElementById("dateValue").value = new Date().toISOString().split('T')[0];
+                </script>
 
-                <div class="d-flex flex-column mb-3 w-25 mx-2">
-                    <label for="selectType" class="text-white fw-bold">Prise</label>
+                <div class="d-flex flex-column mb-3 w-25">
+                    <label for="selectType" class="text-white">Prise</label>
                     <select class="form-control" id="plugTypeValue">
                     </select>
                 </div>
 
                 <div class="d-flex align-items-center">
-                    <button class="btn btn-light bg-transparent border-0" type="button" onclick="redirectWithParams();">
-                        <i class="fa fa-search fa-3x text-white"></i>
+                    <button class="btn btn-light p-3" type="button" onclick="redirectWithParams();">
+                        <i class="fa fa-search fa-3x"></i>
                     </button>
                 </div>
 
@@ -102,7 +107,7 @@
             </div>
         </div>
     </section>
-
+    
     <div id="footer"></div>
 
 </body>

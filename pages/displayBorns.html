@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script async type="module" src="../arch/arch.js"></script>
-  
+  <link rel="stylesheet" href="../ressources/css/footer.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/cosmo/bootstrap.min.css">
   <link rel="stylesheet" href="../ressources/font-awesome-4.7.0/css/font-awesome.min.css">
   <script async type="module" src="../controller/bornController.js"></script>
@@ -24,11 +24,14 @@
 <body>
 
   <div id="header"></div>
-  <div class="d-flex justify-content-center">
-    <div id="map" class="mt-4"></div>
-  </div>
-
-  <div id="informationBorns" class="d-flex align-items-center flex-column"></div>
+  <section>
+    <div class="d-flex justify-content-center">
+      <div id="map" class="mt-4"></div>
+    </div>
+  
+    <div id="informationBorns" class="d-flex align-items-center flex-column"></div>
+  </section>
+  
   <div id="footer"></div>
 
   <script src="../view/map.js"></script> 

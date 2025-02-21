@@ -15,18 +15,31 @@ export function displayPayments( i,item,type) {
         carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
     }
         
-    if(type==="account"){
+    else if(type==="account"){
         
         const cardHTML = `
-       <input class="form-check-input mt-2" type="radio" name="optionsRadios" id="radioButtonPayment_${uniqueId}" value="iban_${uniqueId}" checked>
-<div class="row">
-    <label for="radioButtonPayment_${uniqueId}" class="fw-bold mt-1">Compte bancaire : ${item.iban}</label>
-</div>
+            <input class="form-check-input mt-2" type="radio" name="optionsRadios" id="radioButtonPayment_${uniqueId}" value="iban_${uniqueId}" checked>
+        <div class="row">
+            <label for="radioButtonPayment_${uniqueId}" class="fw-bold mt-1">Compte bancaire : ${item.iban}</label>
+        </div>
 
        
         `;
         const carsDiv = document.getElementById('payementInformation');
         carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
+    }
+    else if(type ==="other"){
+        const cardHTML = `
+           
+        <div class="row">
+            <p> Pas de moyen de payement disponible, veuillez vous connecter </p>
+        </div>
+
+       
+        `;
+        const carsDiv = document.getElementById('payementInformation');
+        carsDiv.insertAdjacentHTML("beforeend", cardHTML) 
+    
     }
 
   

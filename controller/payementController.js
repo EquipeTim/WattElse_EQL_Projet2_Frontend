@@ -100,53 +100,61 @@ function accountBankHandleFormSubmission() {
 
 //Fonction de récupération des cartes bancaires : 
 function getPayementMethod(){
-    fetch(`${backUrl}/card/all`, {
-        method: 'GET',
-        headers: {
-            "Authorization": "Bearer " + owner.token,  
-            "Content-Type": "application/json"
-        }
-    })
-    .then(response => {
+    if(owner != null){
+        fetch(`${backUrl}/card/all`, {
+            method: 'GET',
+            headers: {
+                "Authorization": "Bearer " + owner.token,  
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des comptes bancaire');
+            }
+            return response.json();
+        })
+        .then(data => {
         
-        if (!response.ok) {
-            throw new Error('Erreur lors de la récupération des comptes bancaire');
-        }
-        return response.json();
-    })
-    .then(data => {
-    
-        let i = 1;
-        
-          data.forEach(item => {
-            displayPayments(i,item,"card")
-            i++;
-        });
-                   
-    })
+            let i = 1;
+            
+              data.forEach(item => {
+                displayPayments(i,item,"card")
+                i++;
+            });
+                       
+        })
+
+        fetch(`${backUrl}/account/all`, {
+            method: 'GET',
+            headers: {
+                "Authorization": "Bearer " + owner.token,  
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des cartes bancaire');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let i = 1;
+            data.forEach(item => {
+                displayPayments(i,item,"account")
+                i++;
+            });
+                       
+        })
+
+    }
+    else{
+        displayPayments(0,null,"other")
+    }
     
    
-    fetch(`${backUrl}/account/all`, {
-        method: 'GET',
-        headers: {
-            "Authorization": "Bearer " + owner.token,  
-            "Content-Type": "application/json"
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erreur lors de la récupération des cartes bancaire');
-        }
-        return response.json();
-    })
-    .then(data => {
-        let i = 1;
-        data.forEach(item => {
-            displayPayments(i,item,"account")
-            i++;
-        });
-                   
-    })
+    
     
 }
 

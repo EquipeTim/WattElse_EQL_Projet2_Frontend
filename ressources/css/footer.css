@@ -1,6 +1,4 @@
-footer{
-    position: relative;
-    width: 100%;
-    bottom: 0; 
-    
-  }
+section {
+  min-height: 690px;   
+
+}

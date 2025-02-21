@@ -10,9 +10,13 @@ if (window.location.pathname != '/pages/choosePaymentMethod.html') {
 
 
 document.addEventListener('click', function() {
-    console.log("a")
+    
     const payementButton = document.getElementById("payementButton");
-    payementButton.addEventListener("click", payTransaction);
+
+    if (payementButton) {
+        payementButton.addEventListener("click", payTransaction);
+    } 
+    ;
     if (sessionStorage.getItem('start')) {
       
         startTransaction(sessionStorage.getItem('start'))
@@ -35,13 +39,16 @@ document.addEventListener('click', function() {
 const urlParams = new URLSearchParams(window.location.search);
 
 function payTransaction(idTransaction)
-{   
+{  
+    
     console.log(idTransaction)
-    if(idTransaction === null){
-        console.log("t")
-        const idTransaction = urlParams.get('idBorn');
+    if(idTransaction instanceof PointerEvent){
+       
+        idTransaction = urlParams.get('idTransaction');
+        console.log(idTransaction)
     }
-  
+   
+    
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" ,
@@ -76,7 +83,7 @@ function payTransaction(idTransaction)
 
 function startTransaction(idTransaction)
 {   
-   
+    
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" ,
@@ -87,23 +94,36 @@ function startTransaction(idTransaction)
             })
         };
 
-    fetch(`${backUrl}/start`, requestOptions)
-    .then(response => {
-        console.log(response); 
-        if(response.status ===200){
+        fetch(`${backUrl}/start`, requestOptions)
+        .then(response => {
            
-            window.location.href = "transactionManagement.html";
+            if (response.status === 200) {
+              
+            }
+            return response.json();  
+        })
+        .then(data => {
+           
+            if(data.statusId === 1){
+                 window.location.href = "transactionManagement.html";
+            }
+
+            else{
+                console.log(idTransaction)
+                document.getElementById(`messageLabel_${idTransaction}`).innerText =data.status;
+            }
             
-        }
-            
-    })
+
+        })
+       
+    
     
 }
 
 
 
 function stopTransaction(idTransaction){
-    
+
 const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" ,
@@ -111,6 +131,7 @@ const requestOptions = {
     },
     body: JSON.stringify({ 
             "idReservation": idTransaction
+            
         })
     };
 
@@ -118,13 +139,15 @@ const requestOptions = {
 
     fetch(`${backUrl}/stop`, requestOptions)
     .then(response => {
-       
-        if(response.status ===200){
-            window.location.href = 'choosePaymentMethod.html?idBorn=' + 1;
-            
-        }
+        console.log(response)
+      
         
-})
+        return response.json();  
+    })
+    .then(data => {
+        console.log(data)
+        window.location.href = 'choosePaymentMethod.html?idTransaction=' + data.idTransaction;
+    })
 
 }
 
@@ -140,12 +163,13 @@ function fetchAllTransactions(){
             })
         };
 
-        fetch(`${backUrl}/info/user/history/`, requestOptions)
+        fetch(`${backUrl}/info/user/history/reservations`, requestOptions)
         .then(response => {
             console.log("Statut HTTP:", response.status);
             return response.json();
         })
         .then(data => {
+            console.log(data)
             let i =1;
             data.forEach(item => {
                         
