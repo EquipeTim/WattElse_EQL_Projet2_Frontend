@@ -2,7 +2,9 @@
 import { getBackUrl } from "./backUrl.js";
 import { displayUserStatut } from "../view/userView.js";
 
+
 const backUrl = `${getBackUrl()}/user`;
+const backUrlComponents = `${getBackUrl()}/components`;
 
 const owner = JSON.parse(sessionStorage.getItem("owner"));
 
@@ -39,8 +41,11 @@ function fetchUser() {
     
 }
 
+//deleteUser → Permet de fermer le compte et de sélectionner une raison de fermeture de compte utilisateur et de l'envoyer dans la BDD
+//Cette fonction vérifie également que c'est bien un utilisateur et non un admin qui ferme le compte
 function deleteUser() {
-    
+    const optionSelectedReasonsUserValue = document.getElementById('reasonCloseUserValue');
+    const reasonId = optionSelectedReasonsUserValue.value;
     fetch(`${backUrl}/close`, {
         method: "POST", 
         headers: {
@@ -49,7 +54,7 @@ function deleteUser() {
         },
         body: JSON.stringify({ 
             userId: owner.userId,
-            reasonId: 1,
+            reasonId: reasonId,
             token : owner.token
         })
     })
@@ -58,12 +63,40 @@ function deleteUser() {
         window.location.href = "home.html"
         sessionStorage.removeItem("owner");
     })
-   
 }
+
+
+//fetchReasonsCloseUser → Permet de récupérer les raisons de fermeture de compte dans la BDD
+fetchReasonsCloseUser();
+function fetchReasonsCloseUser() {
+    fetch(`${backUrlComponents}/reasons/accountClose`, {
+        method: 'GET',
+        headers: {
+            "Authorization": "Bearer " + owner.token,  
+            "Content-Type": "application/json"
+        },
+    })
+    .then(response => { 
+        if (!response.ok) {
+            throw new Error('Erreur lors de la récupération des raisons de fermeture');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        data.forEach(item => {
+            const selectedReasonValue = document.getElementById(`reasonCloseUserValue`);
+            const option = document.createElement('option');
+            option.value = item.choiceId;
+            option.textContent = item.choice;
+            selectedReasonValue.appendChild(option);
+    });
+})
+};
+
 
 function modificationUser() {
 
-  
     const firstName = document.getElementById('firstNameValue').value;
     const lastName = document.getElementById('lastNameValue').value;
     const birthdate = document.getElementById('birthdateValue').value;
@@ -115,6 +148,6 @@ function modificationUser() {
         console.error("Erreur:", error);
       
     });
-
-   
 }
+
+

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connecté - Gestion des bornes</title>
     <script async src="../arch/arch.js"></script>
+    <script async type="module" src="../controller/paymentManagementController.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </head>
@@ -13,140 +14,49 @@
 <body>
     <div id="header"></div>
 
-    <section class="row h-100 w-100">
-        <article class="container m-0 p-0 bg-secondary col-lg-3">
-            <div class="row align-self-center">
-                <a href="userInfosManagement.html">
-                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Données personnelles</button>
+    <section class="d-flex justify-content-center">
+        
+        <article class="card container justify-content-center align-items-self  m-0 bg-dark col-lg-2">
+            <div class="d-flex flex-column justify-content-center align-items-self gap-3">
+                <a href="userInfosManagement.html" class="col-md-12">
+                    <button type="button" class="btn btn-menu-side w-100 fw-bold">Données personnelles</button>
                 </a>
-                <a href="chargingStationInfosManagement.html">
-                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Bornes</button>
+                <a href="chargingStationInfosManagement.html" class="col-md-12">
+                    <button type="button" class="btn btn-menu-side w-100 fw-bold">Bornes</button>
                 </a>
-                <a href="carInfosManagement.html">
-                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Véhicules</button>
+                <a href="carInfosManagement.html" class="col-md-12">
+                    <button type="button" class="btn btn-menu-side w-100 fw-bold">Véhicules</button>
                 </a>
-                <a href="userInfosManagement.html">
-                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Moyens de paiement</button>
+                <a href="userPaymentInfosManagement.html" class="col-md-12">
+                    <button type="button" class="btn btn-menu-side w-100 fw-bold">Moyens de paiement</button>
                 </a>
-                <a href="#############">
-                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Transactions</button>
+                <a href="transactionManagement.html" class="col-md-12">
+                    <button type="button" class="btn btn-menu-side w-100 fw-bold">Transactions</button>
                 </a>
-                <a href="###########">
-                    <button type="button" class="w-100 m-0 btn btn-outline-primary mt-5">Revenus</button>
+                <a href="###########" class="col-md-12">
+                    <button type="button" class="btn btn-menu-side w-100 fw-bold">Revenus</button>
                 </a>
             </div>
         </article>
 
 
         <article class="container d-flex flex-column col-md-6 mt-2 mb-5">
-                <div class="row mt-5 mb-5">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <h1 class="text-secondary"><strong>Gestion des moyens de paiement</strong> </h1>
-                    </div>
+            <div class="row mt-3 mb-2">
+                <div class="d-flex justify-content-center align-items-center">
+                    <h2 class="text-secondary fw-bold">Gestion des moyens de paiement</h2>
                 </div>
+            </div>
 
-<!-- Moyen de paiement n°1 : -->
-                <div class="card row border-secondary">
-                    <div class="container d-flex justify-content-center align-items-center">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active " id="mgt-bank-card-tab" data-bs-toggle="tab" data-bs-target="#mgt-bank-card-pane" type="button" role="tab">
-                                    Gestion de la carte bancaire n°1
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="mgt-bank-account-tab" data-bs-toggle="tab" data-bs-target="#mgt-bank-account-pane" type="button" role="tab">
-                                    Gestion du compte bancaire n°1
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-
-<!--ONGLET PAIEMENT 1-->
-                    <div class="card-body col-12">
-                        <div class="tab-content" id="myTabContent">
-                            <!--ONGLET CARTE BANCAIRE 1 -->
-                            <div class="tab-pane fade show active" id="mgt-bank-card-pane" role="tabpanel" aria-labelledby="mgt-bank-card-tab" tabindex="0">
-                                <div class="container col-md-10">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4">
-                                            <i class="fa fa-user mx-1"></i>
-                                            <label class="text-primary" for="bankCardValue"><strong>Nom du titulaire :</strong></label>
-                                            <input id="bankCardValue" type="text" class="form-control" placeholder="John Doe"/> 
-                                        </div> 
-                                        <div class="col-md-6 mb-4">
-                                            <i class="fa fa-money mx-1"></i>
-                                            <label class="text-primary" for="numberBankCardValue"><strong>Numéro de carte :</strong></label>
-                                            <input id="numberBankCardValue" type="text" class="form-control" placeholder="1234 5678 9102 3456"/> 
-                                        </div> 
-                                    </div>
-        
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4">
-                                            <i class="fa fa-calendar mx-1"></i>
-                                            <label class="text-primary" for="dateExpBankCardValue"><strong>Date d'expiration :</strong></label>
-                                            <input id="dateExpBankCardValue" type="date" class="form-control"/> 
-                                        </div> 
-                                        <div class="col-md-6 mb-4">
-                                            <i class="fa fa-hashtag mx-1"></i>
-                                            <label class="text-primary" for="cvvCardValue"><strong>Numéro CVV :</strong></label>
-                                            <input id="cvvCardValue" type="text" class="form-control" placeholder="123"/> 
-                                        </div> 
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="container col-sm-5 mt-4">
-                                        <button class="btn btn-lg btn-primary col-12 w-100 mb-4 p-2">Modifier</button>
-                                        <button class="btn btn-lg btn-danger col-12 p-2">Retirer</button>
-                                    </div> 
-                                </div>
-                            </div>
-
-                            <!--AUTRE TAB : ONGLET COMPTE 1 -->
-                            <div class="tab-pane fade" id="mgt-bank-account-pane" role="tabpanel" aria-labelledby="mgt-bank-account-tab" tabindex="0">
-                                <div class="container col-md-10">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4">
-                                            <i class="fa fa-user mx-1"></i>
-                                            <label class="text-primary" for="userBankAccountValue"><strong>Nom du titulaire :</strong></label>
-                                            <input id="userBankAccountValue" type="text" class="form-control" placeholder="John Doe"/> 
-                                        </div> 
-                                        <div class="col-md-6 mb-4">
-                                            <i class="fa fa-bank mx-1"></i>
-                                            <label class="text-primary" for="ibanBankAccountValue"><strong>IBAN :</strong></label>
-                                            <input id="ibanBankAccountValue" type="text" class="form-control" placeholder="FR00 0000 0000 0000"/> 
-                                        </div> 
-                                    </div>
-        
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4">
-                                            <i class="fa fa-bank mx-1"></i>
-                                            <label class="text-primary" for="bicBankAccountValue"><strong>BIC / SWIFT :</strong></label>
-                                            <input id="bicBankAccountValue" type="text" class="form-control" placeholder="FGXXXXXXXXs"/> 
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="container col-sm-5 mt-4">
-                                        <button class="btn btn-lg btn-primary col-12 w-100 mb-4 p-2">Modifier</button>
-                                        <button class="btn btn-lg btn-danger col-12 p-2">Retirer</button>
-                                    </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row mb-2">
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="userPaymentAdd.html"><button type="button" class="row btn btn-lg btn-success mt-3">Ajouter un moyen de paiement</button></a>
                 </div>
+            </div>
 
-                <div class="row mt-5 mb-5">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <a href="userPaymentAdd.html"><button type="button" class="row btn btn-lg btn-success mt-3">Ajouter un moyen de paiement</button></a>
-                    </div>
-                </div>
-
+<!-- MISE EN PLACE DU CONTROLLER paymentShowController, lié avec la vue allPaymentView au niveau de cet div :-->
+            <div id="allPaymentViewDiv"> 
+            </div>
+            
         </article>
     </section>
 
